@@ -110,10 +110,10 @@ export default function Hero({ navItems }: HeroProps) {
       <div className="relative z-10 flex min-h-screen flex-col justify-between px-6 pt-8 pb-12 md:px-10 md:pt-10 md:pb-16">
         <nav className="flex items-center justify-center">
           <div className="inline-flex items-center gap-6 rounded-full bg-bg-brand px-8 py-4 shadow-[0_24px_50px_rgba(15,23,42,0.35)]">
-            <span className="text-sm font-semibold text-white md:text-base">
+            <span className="text-lg font-medium text-white md:text-2xl">
               Orymu Studio
             </span>
-            <div className="hidden items-center gap-6 text-sm md:flex">
+            <div className="hidden items-center gap-6 text-base md:text-lg px-2 py-1 md:flex">
               <span className="text-text-tertiary">|</span>
               {navItems.map((item) => (
                 <a
@@ -164,12 +164,12 @@ export default function Hero({ navItems }: HeroProps) {
           </p>
 
           <div className="flex flex-wrap items-center gap-6 text-shark-100">
-            <Button className="rounded-xl p-8 text-base shadow-[0_60px_120px_rgba(15,23,42,0.45),0_22px_44px_rgba(15,23,42,0.30)] text-text-inverse">
+            <Button className="rounded-xl p-7 text-base shadow-[0_60px_120px_rgba(15,23,42,0.45),0_22px_44px_rgba(15,23,42,0.30)] text-text-inverse">
               Booking Now
             </Button>
             <Button
               variant="outline"
-              className="rounded-xl p-8 text-base border border-border-brand text-text-brand shadow-[0_8px_18px_rgba(15,23,42,0.08)] hover:bg-white"
+              className="rounded-xl p-7 text-base border border-border-brand text-text-brand shadow-[0_8px_18px_rgba(15,23,42,0.08)] hover:bg-white"
             >
               View Our Process
             </Button>
