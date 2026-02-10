@@ -35,11 +35,11 @@ export default function About() {
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-500/70" />
               <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-500/70" />
-              <div className="relative flex h-40 w-40 items-center justify-center rounded-full bg-linear-to-b from-slate-100 via-slate-400 to-slate-600 shadow-[0_10px_20px_rgba(0,0,0,0.18),0_24px_48px_rgba(0,0,0,0.12)] ring-8 ring-white/70">
+              <div className="relative flex h-36 w-36 items-center justify-center rounded-full bg-linear-to-b from-slate-100 via-slate-400 to-slate-600 shadow-[0_10px_20px_rgba(0,0,0,0.18),0_24px_48px_rgba(0,0,0,0.12)] ring-8 ring-white/70">
                 <img
                   src="/icons/cube-focus.svg"
                   alt=""
-                  className="h-20 w-20"
+                  className="h-18 w-18"
                   aria-hidden="true"
                 />
               </div>
@@ -102,13 +102,12 @@ export default function About() {
             <div className="absolute -top-40 left-1/2 h-80 w-[150%] -translate-x-1/2 rounded-[50%] bg-[#e0e3e7]" />
             <div className="absolute -bottom-60 left-1/2 h-80 w-[150%] -translate-x-1/2 rounded-[50%] bg-[#e0e3e7]" />
 
-            <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
-              <div className="absolute left-1/2 top-1/2 h-[140px] w-[140px] -translate-x-1/2 -translate-y-1/2 rounded-full border-10 border-white/85 shadow-[0_10px_26px_rgba(0,0,0,0.12)]" />
-              <div className="relative flex h-40 w-40 items-center justify-center rounded-full bg-linear-to-b from-slate-100 via-slate-400 to-slate-600 shadow-[0_18px_40px_rgba(0,0,0,0.18)] ring-8 ring-white/90">
+            <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/4">
+              <div className="relative flex h-36 w-36 items-center justify-center rounded-full bg-linear-to-b from-slate-100 via-slate-400 to-slate-600 shadow-[0_18px_40px_rgba(0,0,0,0.18)] ring-8 ring-white/90">
                 <img
                   src="/icons/device.svg"
                   alt=""
-                  className="h-20 w-20"
+                  className="h-18 w-18"
                   aria-hidden="true"
                 />
               </div>
@@ -197,7 +196,11 @@ export default function About() {
                             />
                           </pattern>
                         </defs>
-                        <rect width="100%" height="100%" fill={`url(#${bgId})`} />
+                        <rect
+                          width="100%"
+                          height="100%"
+                          fill={`url(#${bgId})`}
+                        />
                       </svg>
                       <div
                         className="absolute inset-0 overflow-hidden"
@@ -210,17 +213,17 @@ export default function About() {
                         >
                           <defs>
                             <pattern
-                            id={fillId}
-                            width="8"
-                            height="16"
-                            patternUnits="userSpaceOnUse"
-                          >
-                            <rect
-                              width="4"
+                              id={fillId}
+                              width="8"
                               height="16"
-                              rx="3"
-                              ry="3"
-                              fill="rgba(15,23,42,0.9)"
+                              patternUnits="userSpaceOnUse"
+                            >
+                              <rect
+                                width="4"
+                                height="16"
+                                rx="3"
+                                ry="3"
+                                fill="rgba(15,23,42,0.9)"
                               />
                             </pattern>
                           </defs>
@@ -249,7 +252,7 @@ export default function About() {
   return (
     <section
       id="how-we-work"
-      className="mx-auto mt-16 w-full max-w-8xl px-6 md:px-10"
+      className="mx-auto mt-16 md:mt-24 w-full max-w-8xl"
     >
       <div className="flex justify-between lg:gap-24 xl:gap-32">
         <div className="space-y-4">
