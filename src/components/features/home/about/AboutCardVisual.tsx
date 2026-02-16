@@ -63,9 +63,9 @@ function NodesVisual() {
       <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-size-[10px_10px]" />
 
       <div className="absolute -top-28 left-1/2 h-52 w-[150%] -translate-x-1/2 rounded-[50%] bg-[#e0e3e7] sm:-top-36 sm:h-72" />
-      <div className="absolute -bottom-40 left-1/2 h-52 w-[150%] -translate-x-1/2 rounded-[50%] bg-[#e0e3e7] sm:-bottom-52 sm:h-72" />
+      <div className="absolute -bottom-20 left-1/2 h-52 w-[150%] -translate-x-1/2 rounded-[50%] bg-[#e0e3e7] sm:-bottom-64 sm:h-72" />
 
-      <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/4">
+      <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/6">
         <div className="relative flex h-28 w-28 items-center justify-center rounded-full bg-linear-to-b from-slate-100 via-slate-400 to-slate-600 shadow-[0_18px_40px_rgba(0,0,0,0.18)] ring-8 ring-white/90 sm:h-32 sm:w-32">
           <img src="/icons/device.svg" alt="" className="h-14 w-14 sm:h-16 sm:w-16" aria-hidden="true" />
         </div>
@@ -79,11 +79,11 @@ function NodesVisual() {
         <img src="/icons/reactjs.svg" alt="" className="h-10 w-10 sm:h-12 sm:w-12" aria-hidden="true" />
       </div>
 
-      <div className="absolute bottom-6 left-5 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-b from-white via-gray-50 to-gray-100 shadow-[0_10px_22px_rgba(0,0,0,0.14)] ring-1 ring-white/90 sm:bottom-8 sm:left-8 sm:h-20 sm:w-20">
+      <div className="absolute bottom-6 left-5 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-b from-white via-gray-50 to-gray-100 shadow-[0_10px_22px_rgba(0,0,0,0.14)] ring-1 ring-white/90 sm:-bottom-4 sm:left-8 sm:h-20 sm:w-20">
         <img src="/icons/flutter.svg" alt="" className="h-10 w-10 sm:h-12 sm:w-12" aria-hidden="true" />
       </div>
 
-      <div className="absolute bottom-6 right-5 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-b from-white via-gray-50 to-gray-100 shadow-[0_10px_22px_rgba(0,0,0,0.14)] ring-1 ring-white/90 sm:bottom-8 sm:right-8 sm:h-20 sm:w-20">
+      <div className="absolute bottom-6 right-5 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-b from-white via-gray-50 to-gray-100 shadow-[0_10px_22px_rgba(0,0,0,0.14)] ring-1 ring-white/90 sm:-bottom-4 sm:right-8 sm:h-20 sm:w-20">
         <img src="/icons/kotlin.svg" alt="" className="h-10 w-10 sm:h-12 sm:w-12" aria-hidden="true" />
       </div>
     </div>
@@ -93,7 +93,7 @@ function NodesVisual() {
 function BarsVisual() {
   return (
     <div className="relative h-[300px] overflow-hidden rounded-xl bg-[#f3f4f7] p-4 sm:h-[380px] sm:p-5 lg:h-[460px]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(15,23,42,0.08)_1px,transparent_1px)] bg-[size:12px_12px]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(15,23,42,0.08)_1px,transparent_1px)] bg-size[12px_12px]" />
       <div className="relative flex h-full flex-col justify-between py-1 sm:py-2">
         {barItems.map((item) => {
           const safeId = item.label.toLowerCase().replace(/\s+/g, "-");

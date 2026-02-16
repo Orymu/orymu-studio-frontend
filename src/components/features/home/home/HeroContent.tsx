@@ -33,7 +33,7 @@ export default function HeroContent() {
         </Button>
         <Button
           variant="outline"
-          className="rounded-xl border border-border-brand p-6 text-base text-text-brand shadow-[0_8px_18px_rgba(15,23,42,0.08)] hover:bg-white sm:p-7"
+          className="rounded-xl border border-border-brand p-6 text-base text-text-brand shadow-[0_8px_18px_rgba(15,23,42,0.08)] sm:p-7 bg-transparent"
         >
           View Our Process
         </Button>

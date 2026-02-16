@@ -13,12 +13,12 @@ const portfolioItems: PortfolioItem[] = [
       {
         src: "/icons/phone-1.svg",
         className:
-          "absolute bottom-[-10%] left-[-2%] z-10 h-[72%] w-auto drop-shadow-[0_24px_34px_rgba(15,23,42,0.24)] sm:h-[80%] md:-left-[10%] md:h-[86%]",
+          "absolute bottom-[-10%] left-[-2%] z-10 h-[72%] w-auto drop-shadow-[0_24px_34px_rgba(15,23,42,0.24)] sm:h-[80%] md:left-[-1%] md:h-[86%]",
       },
       {
         src: "/icons/phone-2.svg",
         className:
-          "absolute right-[-2%] top-[-4%] z-20 h-[96%] w-auto drop-shadow-[0_30px_44px_rgba(15,23,42,0.30)] md:-right-[10%]",
+          "absolute right-[-2%] top-[-4%] z-20 h-[96%] w-auto drop-shadow-[0_30px_44px_rgba(15,23,42,0.30)] md:right-[-1%]",
       },
     ],
     metrics: [
@@ -54,7 +54,7 @@ export default function Portfolio() {
       id="portfolio"
       className="mx-auto mt-16 w-full max-w-8xl px-4 py-4 sm:mt-20 sm:px-6 sm:py-6 lg:mt-24 lg:px-10 lg:py-10"
     >
-      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10">
+      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,0.95fr)] lg:gap-10">
         <PortfolioHeader />
 
         <div className="flex flex-col gap-10 sm:gap-12">
