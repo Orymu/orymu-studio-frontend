@@ -30,7 +30,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="relative mt-16 w-full overflow-hidden bg-[#f3f3f4] pb-6 sm:pb-8"
+      className="relative mt-16 w-full overflow-hidden pb-6 sm:pb-8"
     >
       <FooterTopStrip email="Orymu@studio.com" socialLinks={socialLinks} />
       <FooterBrandMarquee brand="Orymu Studio" />

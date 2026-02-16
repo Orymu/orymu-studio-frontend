@@ -1,87 +1,128 @@
-# Nextjs Boilerplate
+# Orymu Studio Frontend
 
-Next.js (App Router) boilerplate with TypeScript, Tailwind CSS, and a clean modular structure.
+Frontend website Orymu Studio menggunakan Next.js App Router, TypeScript, dan Tailwind CSS v4.
 
-## Quick Start
+## Overview
+
+Project ini berisi landing page modular dengan section:
+
+- Hero
+- About
+- Service
+- Portfolio
+- Pricing
+- Footer
+
+Semua section disusun per folder domain agar lebih mudah dirawat dan di-scale.
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Lucide React (icons)
+- Lenis (smooth scroll)
+- shadcn/ui setup (komponen UI dasar)
+
+## Project Structure
+
+```text
+src/
+  app/
+    layout.tsx
+    page.tsx
+    globals.css
+  components/
+    features/
+      index.ts
+      home/
+        index.ts
+        home/
+          Hero.tsx
+          HeroNavbar.tsx
+          HeroContent.tsx
+          HeroBackground.tsx
+          hero-types.ts
+        about/
+          About.tsx
+          AboutHeader.tsx
+          AboutProcessCard.tsx
+          AboutCardVisual.tsx
+          about-types.ts
+        service/
+          Service.tsx
+          ServiceHeader.tsx
+          ServiceTimeline.tsx
+          service-types.ts
+        portfolio/
+          Portfolio.tsx
+          PortfolioHeader.tsx
+          PortfolioShowcaseCard.tsx
+          PortfolioMetrics.tsx
+          portfolio-types.ts
+        pricing/
+          Pricing.tsx
+          PricingHeader.tsx
+          PricingPlanCard.tsx
+          PricingFeatureList.tsx
+          pricing-types.ts
+        footer/
+          Footer.tsx
+          FooterTopStrip.tsx
+          FooterSocialLink.tsx
+          FooterBrandMarquee.tsx
+          FooterBottomBar.tsx
+          footer-types.ts
+    ui/
+      button.tsx
+  lib/
+    utils/
+      utils.ts
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20+
+- pnpm
+
+### Install
 
 ```bash
 pnpm install
+```
+
+### Run Dev Server
+
+```bash
 pnpm dev
 ```
 
-Open `http://localhost:3000` to view the app.
+Akses di `http://localhost:3000`.
 
-## Scripts
+## Available Scripts
 
 ```bash
-pnpm dev         # run dev server
+pnpm dev         # run dev server (turbopack)
 pnpm build       # production build
-pnpm start       # run production build
-pnpm lint        # linting
-pnpm type-check  # TypeScript type check
+pnpm start       # run production server
+pnpm lint        # lint check
+pnpm type-check  # TypeScript check
 pnpm test        # run tests
-pnpm test:watch  # watch test mode
+pnpm test:watch  # run tests in watch mode
 pnpm db:push     # prisma db push
 pnpm db:studio   # prisma studio
 pnpm db:seed     # seed database
 ```
 
-## Folder Structure
+## Styling and Design Tokens
 
-```text
-.
-├─ docs/
-│  └─ API.md
-├─ public/
-│  ├─ fonts/
-│  ├─ icons/
-│  ├─ images/
-│  ├─ next.svg
-│  └─ vercel.svg
-├─ src/
-│  ├─ __tests__/
-│  │  └─ setup.ts
-│  ├─ app/
-│  │  ├─ api/
-│  │  ├─ auth/
-│  │  ├─ favicon.ico
-│  │  ├─ globals.css
-│  │  ├─ layout.tsx
-│  │  ├─ not-found.tsx
-│  │  └─ page.tsx
-│  ├─ components/
-│  │  ├─ common/
-│  │  ├─ features/
-│  │  ├─ providers/
-│  │  └─ ui/
-│  ├─ config/
-│  │  ├─ auth.ts
-│  │  ├─ constants.ts
-│  │  ├─ database.ts
-│  │  └─ env.ts
-│  ├─ hooks/
-│  │  └─ index.ts
-│  ├─ lib/
-│  │  ├─ auth/
-│  │  ├─ db/
-│  │  │  └─ schema.ts
-│  │  ├─ helpers/
-│  │  ├─ repositories/
-│  │  ├─ schemas/
-│  │  ├─ services/
-│  │  └─ utils/
-│  └─ types/
-│     └─ api.types.ts
-├─ components.json
-├─ eslint.config.mjs
-├─ middleware.ts
-├─ next.config.ts
-├─ package.json
-├─ postcss.config.mjs
-└─ tsconfig.json
-```
+Design token dikelola di `src/app/globals.css` menggunakan CSS variables (`--bg-*`, `--text-*`, `--border-*`) dan dipetakan ke Tailwind v4 `@theme inline`.
 
 ## Notes
 
-- API docs are available at `docs/API.md`.
-- UI primitives live in `src/components/ui`, while domain components live in `src/components/features`.
+- Path alias `@/*` diarahkan ke `src/*` (lihat `tsconfig.json`).
+- Export section home terpusat di `src/components/features/home/index.ts`.
+- Export global fitur ada di `src/components/features/index.ts`.
