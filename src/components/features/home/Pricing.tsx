@@ -29,7 +29,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="price" className="mx-auto mt-16 w-full max-w-8xl">
+    <section id="pricing" className="mx-auto mt-16 w-full max-w-8xl px-4 py-4 sm:py-6 sm:px-6 lg:py-10 lg:px-10">
       <div className="grid gap-5 lg:grid-cols-[0.78fr_1.22fr]">
         <div className="space-y-4">
           <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold uppercase text-text-primary shadow-sm font-mono">
@@ -49,11 +49,11 @@ export default function Pricing() {
             transparan. Tanpa biaya tersembunyi.
           </p>
         </div>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:gap-8 md:grid-cols-2">
           {plans.map((plan) => (
             <article
               key={plan.name}
-              className="rounded-xl border border-slate-200 bg-bg-hover p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.65),0_10px_24px_rgba(15,23,42,0.08)]"
+              className="rounded-xl border border-border-primary bg-bg-hover p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.65),0_10px_24px_rgba(15,23,42,0.08)]"
             >
               <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-b from-slate-100 via-slate-400 to-slate-600 shadow-[0_10px_20px_rgba(0,0,0,0.18),0_24px_48px_rgba(0,0,0,0.12)] ring-8 ring-white/70">
                 <img
@@ -75,7 +75,7 @@ export default function Pricing() {
                   /Project
                 </span>
               </p>
-              <div className="mt-4 rounded-xl border border-slate-200 bg-[#f6f7f8] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
+              <div className="mt-4 rounded-xl border border-border-primary bg-bg-primary p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
                 <ul className="space-y-5 md:space-y-7 mb-3">
                   {plan.features.map((item) => (
                     <li key={item} className="flex items-start gap-2.5">

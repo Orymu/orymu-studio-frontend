@@ -6,9 +6,13 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="relative mt-16 w-full overflow-hidden border-t border-[#e4e6ea] pt-5 pb-6 sm:pt-7 sm:pb-8"
+      className="relative mt-16 w-full overflow-hidden pb-6 sm:pb-8"
     >
-      <div className="px-5 sm:px-8 md:px-10 lg:px-12 mb-12 md:mb-20">
+      <div className="px-5 sm:px-8 md:px-10 lg:px-12">
+        <div className="border-t border-[#e4e6ea]" />
+      </div>
+
+      <div className="mb-12 px-5 pt-5 sm:px-8 sm:pt-7 md:mb-20 md:px-10 lg:px-12">
         <div className="grid gap-5 text-text-secondary md:grid-cols-3">
           <div>
             <p className="text-sm">Contact At</p>

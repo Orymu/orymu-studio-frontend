@@ -13,7 +13,7 @@ export default function Service() {
   ];
 
   return (
-    <section id="service" className="mx-auto mt-16 md:mt-24 w-full max-w-8xl">
+    <section id="service" className="mx-auto mt-16 md:mt-24 w-full max-w-8xl px-4 py-4 sm:py-6 sm:px-6 lg:py-10 lg:px-10">
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
         <div className="space-y-4">
           <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold uppercase text-text-primary shadow-sm font-mono">
@@ -63,7 +63,7 @@ export default function Service() {
                         "repeating-linear-gradient(to right, rgba(226,232,240,1) 0px, rgba(226,232,240,1) 10px, transparent 10px, transparent 22px)",
                     }}
                   />
-                  <p className="mt-5 text-lg leading-relaxed text-slate-500">
+                  <p className="mt-5 text-lg md:text-xl leading-relaxed text-slate-500">
                     {service.description}
                   </p>
                 </div>

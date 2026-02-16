@@ -251,8 +251,8 @@ export default function About() {
 
   return (
     <section
-      id="how-we-work"
-      className="mx-auto mt-16 md:mt-24 w-full max-w-8xl"
+      id="about"
+      className="mx-auto mt-16 md:mt-24 w-full max-w-8xl px-4 py-4 sm:py-6 sm:px-6 lg:py-10 lg:px-10"
     >
       <div className="flex justify-between lg:gap-24 xl:gap-32">
         <div className="space-y-4">

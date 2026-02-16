@@ -9,15 +9,15 @@ import {
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#how-we-work" },
+  { label: "About", href: "#about" },
   { label: "Service", href: "#service" },
-  { label: "Portfolio", href: "#our-work" },
-  { label: "Pricing", href: "#price" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Pricing", href: "#pricing" },
 ];
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-[#1f2933]">
-      <main className="px-4 py-4 sm:py-6 sm:px-6 lg:py-10 lg:px-10">
+    <div className="min-h-screen bg-white text-text-primary">
+      <main>
         <Hero navItems={navItems} />
         <About />
         <Service />
