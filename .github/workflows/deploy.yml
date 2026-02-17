@@ -8,7 +8,6 @@ on:
 
 permissions:
   contents: read
-  packages: write
 
 concurrency:
   group: production-deploy
@@ -18,7 +17,7 @@ env:
   DEPLOY_PATH: /opt/orymu-studio
 
 jobs:
-  build_and_deploy:
+  deploy_static_site:
     runs-on: ubuntu-latest
     environment:
       name: production
@@ -26,6 +25,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static output
+        run: pnpm build
+
+      - name: Ensure static output exists
+        run: |
+          set -euo pipefail
+          if [ ! -d out ]; then
+            echo "Missing out/ directory. Verify next.config.ts uses output: 'export'."
+            exit 1
+          fi
 
       - name: Validate required secrets
         env:
@@ -47,35 +71,6 @@ jobs:
           if [ "$missing" -ne 0 ]; then
             exit 1
           fi
-
-      - name: Compute image metadata
-        id: meta
-        run: |
-          set -euo pipefail
-          image_repo="ghcr.io/${GITHUB_REPOSITORY,,}"
-          image_tag="sha-${GITHUB_SHA::12}"
-
-          echo "image_repo=$image_repo" >> "$GITHUB_OUTPUT"
-          echo "image_tag=$image_tag" >> "$GITHUB_OUTPUT"
-
-      - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to GHCR
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build and push image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: |
-            ${{ steps.meta.outputs.image_repo }}:${{ steps.meta.outputs.image_tag }}
-            ${{ steps.meta.outputs.image_repo }}:main
 
       - name: Setup SSH key
         uses: webfactory/ssh-agent@v0.9.0
@@ -103,6 +98,17 @@ jobs:
           tar -C deploy -czf - . | ssh -p "$ssh_port" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
             "set -euo pipefail; mkdir -p '$DEPLOY_PATH'; tar -xzf - -C '$DEPLOY_PATH'"
 
+      - name: Upload static bundle
+        env:
+          PRODUCTION_SSH_HOST: ${{ secrets.PRODUCTION_SSH_HOST }}
+          PRODUCTION_SSH_PORT: ${{ secrets.PRODUCTION_SSH_PORT }}
+          PRODUCTION_SSH_USER: ${{ secrets.PRODUCTION_SSH_USER }}
+        run: |
+          set -euo pipefail
+          ssh_port="${PRODUCTION_SSH_PORT:-22}"
+          tar -C out -czf - . | ssh -p "$ssh_port" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
+            "set -euo pipefail; rm -rf '$DEPLOY_PATH/site_next'; mkdir -p '$DEPLOY_PATH/site_next'; tar -xzf - -C '$DEPLOY_PATH/site_next'"
+
       - name: Deploy on droplet
         env:
           PRODUCTION_SSH_HOST: ${{ secrets.PRODUCTION_SSH_HOST }}
@@ -110,27 +116,21 @@ jobs:
           PRODUCTION_SSH_USER: ${{ secrets.PRODUCTION_SSH_USER }}
           PRODUCTION_APP_DOMAIN: ${{ secrets.PRODUCTION_APP_DOMAIN }}
           PRODUCTION_ACME_EMAIL: ${{ secrets.PRODUCTION_ACME_EMAIL }}
-          IMAGE_REPO: ${{ steps.meta.outputs.image_repo }}
-          IMAGE_TAG: ${{ steps.meta.outputs.image_tag }}
         run: |
           set -euo pipefail
           ssh_port="${PRODUCTION_SSH_PORT:-22}"
 
-          image_repo_escaped="$(printf '%q' "$IMAGE_REPO")"
-          image_tag_escaped="$(printf '%q' "$IMAGE_TAG")"
           app_domain_escaped="$(printf '%q' "$PRODUCTION_APP_DOMAIN")"
           acme_email_escaped="$(printf '%q' "$PRODUCTION_ACME_EMAIL")"
 
           ssh -p "$ssh_port" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
             "set -euo pipefail; \
              cd '$DEPLOY_PATH'; \
-             IMAGE_REPO=$image_repo_escaped \
-             IMAGE_TAG=$image_tag_escaped \
              APP_DOMAIN=$app_domain_escaped \
              ACME_EMAIL=$acme_email_escaped \
              bash scripts/deploy.sh"
 
       - name: Deployment summary
         run: |
-          echo "Deployed image: ${{ steps.meta.outputs.image_repo }}:${{ steps.meta.outputs.image_tag }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "Droplet path: $DEPLOY_PATH" >> "$GITHUB_STEP_SUMMARY"
+          echo "Deployed static site to $DEPLOY_PATH/site" >> "$GITHUB_STEP_SUMMARY"
+          echo "Domain: ${{ secrets.PRODUCTION_APP_DOMAIN }}" >> "$GITHUB_STEP_SUMMARY"

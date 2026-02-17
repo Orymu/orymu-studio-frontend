@@ -2,22 +2,8 @@
 set -euo pipefail
 
 DEPLOY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-ENV_FILE="$DEPLOY_DIR/.env"
-LAST_KNOWN_GOOD_FILE="$DEPLOY_DIR/.last_known_good"
-TARGET_TAG="${1:-}"
-
-if [ -z "$TARGET_TAG" ]; then
-  if [ ! -f "$LAST_KNOWN_GOOD_FILE" ]; then
-    echo "No rollback target provided and $LAST_KNOWN_GOOD_FILE not found"
-    exit 1
-  fi
-  TARGET_TAG="$(cat "$LAST_KNOWN_GOOD_FILE")"
-fi
-
-if [ ! -f "$ENV_FILE" ]; then
-  echo "Missing $ENV_FILE"
-  exit 1
-fi
+SITE_DIR="$DEPLOY_DIR/site"
+SITE_PREV_DIR="$DEPLOY_DIR/site_prev"
 
 if ! command -v docker >/dev/null 2>&1; then
   echo "docker is required but not installed"
@@ -29,15 +15,15 @@ if ! docker compose version >/dev/null 2>&1; then
   exit 1
 fi
 
-if ! grep -q '^IMAGE_REPO=' "$ENV_FILE"; then
-  echo "IMAGE_REPO is not set in $ENV_FILE"
+if [ ! -d "$SITE_PREV_DIR" ]; then
+  echo "No rollback target found at $SITE_PREV_DIR"
   exit 1
 fi
 
-sed -i "s/^IMAGE_TAG=.*/IMAGE_TAG=$TARGET_TAG/" "$ENV_FILE"
+rm -rf "$SITE_DIR"
+mv "$SITE_PREV_DIR" "$SITE_DIR"
 
 cd "$DEPLOY_DIR"
-docker compose pull app
-docker compose up -d --remove-orphans app caddy
+docker compose up -d --remove-orphans caddy
 
-echo "Rollback completed to IMAGE_TAG=$TARGET_TAG"
+echo "Rollback completed using previous static bundle"
