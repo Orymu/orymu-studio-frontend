@@ -106,8 +106,8 @@ Akses di `http://localhost:3000`.
 
 ```bash
 pnpm dev         # run dev server (turbopack)
-pnpm build       # production build
-pnpm start       # run production server
+pnpm build       # static production build (out/)
+pnpm start       # preview static output on port 3000
 pnpm lint        # lint check
 pnpm type-check  # TypeScript check
 pnpm test        # run tests

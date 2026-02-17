@@ -1,23 +1,29 @@
-# CI/CD and Deployment (DigitalOcean Droplet)
+# CI/CD and Deployment (DigitalOcean Droplet - Static)
 
-This project is set up for production deployment to a DigitalOcean Standard Droplet using:
+This project is deployed as a static site to a DigitalOcean Standard Droplet using:
 
 - GitHub Actions for CI/CD
-- GHCR (`ghcr.io`) for container images
+- Next.js static export (`out/`)
 - Docker Compose on droplet
-- Caddy as reverse proxy + automatic TLS
+- Caddy as static web server + automatic TLS
+
+## Why this is lighter
+
+- No Node.js runtime container in production
+- No image build/push/pull pipeline
+- No GHCR dependency for deployment
+- One service only (`caddy`)
 
 ## Architecture
 
-- `app` service: Next.js container (built from `Dockerfile`)
-- `caddy` service: terminates TLS on `443`, proxies to `app:3000`
-- Health endpoint: `GET /api/health`
-- Deploy path on droplet: `/opt/orymu-studio`
+- Build output: `out/` (from `pnpm build`)
+- Droplet deploy path: `/opt/orymu-studio`
+- Caddy serves static files from `/opt/orymu-studio/site`
+- Staged uploads land in `/opt/orymu-studio/site_next`, then promoted atomically by deploy script
 
 ## Repository Files
 
-- `Dockerfile`
-- `.dockerignore`
+- `next.config.ts` (`output: "export"`)
 - `deploy/docker-compose.yml`
 - `deploy/Caddyfile`
 - `deploy/.env.example`
@@ -49,14 +55,13 @@ Trigger:
 
 Flow:
 
-1. Build Docker image
-2. Push image to GHCR with tags:
-   - `sha-<12 chars>`
-   - `main`
-3. Upload `deploy/` assets to droplet (`/opt/orymu-studio`)
-4. Execute remote deploy script (`scripts/deploy.sh`)
-5. Health check (`http://127.0.0.1:3000/api/health`)
-6. Auto rollback to previous image tag if deploy health check fails
+1. Install dependencies
+2. Build static output (`out/`)
+3. Upload deploy assets to droplet (`/opt/orymu-studio`)
+4. Upload static bundle to `/opt/orymu-studio/site_next`
+5. Execute deploy script to promote `site_next -> site`
+6. Caddy health check
+7. Automatic rollback to previous bundle if health check fails
 
 ## Required GitHub Setup
 
@@ -77,21 +82,21 @@ Add these secrets in `production` environment:
 - `PRODUCTION_SSH_PORT` (optional, defaults to `22`)
 - `PRODUCTION_SSH_USER` (deploy user)
 - `PRODUCTION_SSH_KEY` (private key content)
-- `PRODUCTION_APP_DOMAIN` (for Caddy virtual host, e.g. `app.example.com`)
+- `PRODUCTION_APP_DOMAIN` (e.g. `app.example.com`)
 - `PRODUCTION_ACME_EMAIL` (Let's Encrypt email)
 
 ### 3. Branch Protection
 
-Protect `main` branch and require CI checks before merge.
+Protect `main` and require CI checks before merge.
 
 ## Droplet Setup
 
-## 1. Create droplet
+### 1. Create droplet
 
 - Ubuntu LTS
 - SSH key auth enabled
 
-## 2. Harden network
+### 2. Harden network
 
 Use DigitalOcean Cloud Firewall:
 
@@ -99,7 +104,7 @@ Use DigitalOcean Cloud Firewall:
 - Inbound `80`, `443` (public)
 - Outbound as required
 
-## 3. Bootstrap docker runtime
+### 3. Bootstrap docker runtime
 
 Run on droplet as root:
 
@@ -107,9 +112,7 @@ Run on droplet as root:
 sudo bash /path/to/bootstrap-droplet.sh <deploy-user> /opt/orymu-studio
 ```
 
-If script is not on droplet yet, copy from repo first.
-
-## 4. Validate runtime
+### 4. Validate runtime
 
 As deploy user:
 
@@ -120,17 +123,9 @@ docker compose version
 
 ## First Production Deploy
 
-After secrets are configured:
-
-1. Merge to `main`, or run `Deploy Production` manually from Actions
+1. Merge to `main` or run `Deploy Production` manually
 2. Watch `deploy.yml` logs
-3. Verify:
-
-```bash
-curl -fsS http://127.0.0.1:3000/api/health
-```
-
-4. Validate public domain over HTTPS
+3. Validate domain over HTTPS
 
 ## Manual Rollback
 
@@ -141,21 +136,17 @@ cd /opt/orymu-studio
 bash scripts/rollback.sh
 ```
 
-Or rollback to specific tag:
-
-```bash
-cd /opt/orymu-studio
-bash scripts/rollback.sh sha-<tag>
-```
-
 ## Operational Notes
 
-- Deploy script stores last successful tag in `/opt/orymu-studio/.last_known_good`
-- Runtime config is in `/opt/orymu-studio/.env`
-- Caddy cert data is stored in docker volume `caddy_data`
+- Active static bundle: `/opt/orymu-studio/site`
+- Previous bundle: `/opt/orymu-studio/site_prev`
+- Incoming bundle: `/opt/orymu-studio/site_next`
+- Runtime config: `/opt/orymu-studio/.env`
+- Caddy cert state in volumes `caddy_data` and `caddy_config`
 
-## Optional Next Steps
+## Optional further cost reduction
 
-- Add uptime checks and alerting in DigitalOcean Monitoring
-- Add staging environment with separate droplet and GitHub environment
-- Move to two droplets + load balancer for high availability
+If traffic/requirements allow:
+
+1. Move from droplet to static hosting product (no VM)
+2. Keep droplet only for workloads that need compute runtime

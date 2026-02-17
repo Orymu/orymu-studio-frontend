@@ -1,31 +1,7 @@
 services:
-  app:
-    image: ${IMAGE_REPO:?IMAGE_REPO is required}:${IMAGE_TAG:?IMAGE_TAG is required}
-    restart: unless-stopped
-    env_file:
-      - .env
-    environment:
-      NODE_ENV: production
-      NEXT_TELEMETRY_DISABLED: "1"
-      PORT: "3000"
-      HOSTNAME: 0.0.0.0
-    ports:
-      - "127.0.0.1:3000:3000"
-    healthcheck:
-      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1:3000/api/health > /dev/null || exit 1"]
-      interval: 15s
-      timeout: 5s
-      retries: 6
-      start_period: 20s
-    networks:
-      - web
-
   caddy:
     image: caddy:2.10.2-alpine
     restart: unless-stopped
-    depends_on:
-      app:
-        condition: service_healthy
     env_file:
       - .env
     ports:
@@ -33,15 +9,16 @@ services:
       - "443:443"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./site:/srv:ro
       - caddy_data:/data
       - caddy_config:/config
-    networks:
-      - web
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/ > /dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 4
+      start_period: 10s
 
 volumes:
   caddy_data:
   caddy_config:
-
-networks:
-  web:
-    driver: bridge
