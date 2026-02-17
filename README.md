@@ -126,3 +126,7 @@ Design token dikelola di `src/app/globals.css` menggunakan CSS variables (`--bg-
 - Path alias `@/*` diarahkan ke `src/*` (lihat `tsconfig.json`).
 - Export section home terpusat di `src/components/features/home/index.ts`.
 - Export global fitur ada di `src/components/features/index.ts`.
+
+## Deployment
+
+- CI/CD dan deployment ke DigitalOcean Droplet didokumentasikan di `docs/DEPLOYMENT.md`.
