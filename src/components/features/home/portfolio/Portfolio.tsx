@@ -52,12 +52,12 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="mx-auto mt-16 w-full max-w-8xl px-4 py-4 sm:mt-20 sm:px-6 sm:py-6 lg:mt-24 lg:px-10 lg:py-10"
+      className="mx-auto mt-16 w-full max-w-8xl scroll-mt-32 px-4 py-4 sm:mt-20 sm:px-6 sm:py-6 lg:mt-24 lg:px-10 lg:py-10"
     >
-      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,0.95fr)] lg:gap-10">
+      <div className="grid min-w-0 items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,0.95fr)] lg:gap-10">
         <PortfolioHeader />
 
-        <div className="flex flex-col gap-10 sm:gap-12">
+        <div className="flex min-w-0 flex-col gap-10 sm:gap-12">
           {portfolioItems.map((item) => (
             <PortfolioShowcaseCard key={item.badge} item={item} />
           ))}

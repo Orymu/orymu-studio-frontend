@@ -16,7 +16,7 @@ const navItems = [
 ];
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-text-primary">
+    <div className="min-h-screen overflow-x-hidden bg-white text-text-primary">
       <main>
         <Hero navItems={navItems} />
         <About />

@@ -29,10 +29,10 @@ export default function HeroNavbar({
   };
 
   return (
-    <nav className="flex items-center justify-center">
-      <div className="relative w-full max-w-4xl rounded-2xl bg-bg-brand px-4 py-3 shadow-[0_24px_50px_rgba(15,23,42,0.35)] md:w-auto md:max-w-none md:rounded-full md:px-8 md:py-4">
+    <nav className="pointer-events-none fixed left-0 right-0 top-0 z-[2147483647] flex items-start justify-center px-3 pb-8 pt-3 before:absolute before:inset-x-0 before:top-0 before:-z-10 before:h-28 before:bg-linear-to-b before:from-white before:via-white/95 before:to-transparent sm:px-4 md:pt-6">
+      <div className="pointer-events-auto relative w-full max-w-4xl rounded-2xl bg-bg-brand px-4 py-3 shadow-[0_24px_50px_rgba(15,23,42,0.35)] md:w-auto md:max-w-none md:rounded-full md:px-5 md:py-3.5 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between gap-4">
-          <span className="text-lg font-medium text-white md:text-2xl">
+          <span className="truncate text-lg font-medium text-white md:text-xl lg:text-2xl">
             Orymu Studio
           </span>
 
@@ -47,12 +47,12 @@ export default function HeroNavbar({
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
 
-          <div className="hidden items-center gap-6 px-2 py-1 text-base md:flex md:text-lg">
+          <div className="hidden items-center gap-3 px-1 py-1 text-base md:flex lg:gap-6 lg:px-2 lg:text-lg">
             <span className="text-text-tertiary">|</span>
             {navItems.map((item) => (
               <a
                 key={item.label}
-                className={`inline-flex items-center rounded-full px-3 py-1.5 transition-colors ${
+                className={`inline-flex items-center rounded-full px-2 py-1.5 transition-colors lg:px-3 ${
                   isItemActive(item)
                     ? "text-text-inverse"
                     : "text-text-tertiary hover:text-text-inverse"
@@ -69,7 +69,7 @@ export default function HeroNavbar({
 
         <div
           id="hero-mobile-nav"
-          className={`absolute left-0 right-0 top-full z-30 mt-2 transition-all duration-300 md:hidden ${
+          className={`absolute left-0 right-0 top-full z-[1] mt-2 transition-all duration-300 md:hidden ${
             isMenuOpen
               ? "pointer-events-auto translate-y-0 opacity-100"
               : "pointer-events-none -translate-y-1 opacity-0"
