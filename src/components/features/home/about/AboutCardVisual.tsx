@@ -71,7 +71,7 @@ function NodesVisual() {
         </div>
       </div>
 
-      <div className="absolute left-[11%] top-[20%] z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/3 items-center justify-center rounded-full bg-white shadow-[0_12px_26px_rgba(15,23,42,0.16)] ring-4 ring-white/70 sm:h-14 sm:w-14 md:h-16 md:w-16">
+      <div className="absolute left-[11%] top-[20%] z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_26px_rgba(15,23,42,0.16)] ring-4 ring-white/70 sm:h-14 sm:w-14 md:h-16 md:w-16">
         <img src="/icons/nodejs.svg" alt="" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" aria-hidden="true" />
       </div>
 
