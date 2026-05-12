@@ -14,13 +14,13 @@ const barItems = [
 
 function OrbitVisual() {
   return (
-    <div className="relative h-[300px] overflow-hidden rounded-xl bg-bg-hover p-4 sm:h-[380px] sm:p-5 lg:h-[460px]">
+    <div className="relative h-[240px] overflow-hidden rounded-xl bg-bg-hover p-4 sm:h-[320px] sm:p-5 md:h-[380px] lg:h-[460px]">
       <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0.06)_1px,transparent_1px)] bg-size-[10px_10px]" />
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="absolute left-1/2 top-1/2 h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-500/70 sm:h-[430px] sm:w-[430px]" />
-        <div className="absolute left-1/2 top-1/2 h-[210px] w-[210px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-500/70 sm:h-[270px] sm:w-[270px]" />
-        <div className="relative flex h-28 w-28 items-center justify-center rounded-full bg-linear-to-b from-slate-100 via-slate-400 to-slate-600 shadow-[0_10px_20px_rgba(0,0,0,0.18),0_24px_48px_rgba(0,0,0,0.12)] ring-8 ring-white/70 sm:h-32 sm:w-32">
-          <img src="/icons/cube-focus.svg" alt="" className="h-14 w-14 sm:h-16 sm:w-16" aria-hidden="true" />
+        <div className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-500/70 sm:h-[360px] sm:w-[360px] md:h-[430px] md:w-[430px]" />
+        <div className="absolute left-1/2 top-1/2 h-[170px] w-[170px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-500/70 sm:h-[230px] sm:w-[230px] md:h-[270px] md:w-[270px]" />
+        <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-linear-to-b from-slate-100 via-slate-400 to-slate-600 shadow-[0_10px_20px_rgba(0,0,0,0.18),0_24px_48px_rgba(0,0,0,0.12)] ring-8 ring-white/70 sm:h-28 sm:w-28 md:h-32 md:w-32">
+          <img src="/icons/cube-focus.svg" alt="" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16" aria-hidden="true" />
         </div>
       </div>
 
@@ -50,7 +50,7 @@ function OrbitVisual() {
 
 function BoardVisual() {
   return (
-    <div className="relative h-[300px] overflow-hidden bg-bg-hover sm:h-[380px] lg:h-[460px]">
+    <div className="relative h-[240px] overflow-hidden bg-bg-hover sm:h-[320px] md:h-[380px] lg:h-[460px]">
       <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-size-[10px_10px]" />
       <img src="/icons/diagram.svg" alt="" className="relative z-10 h-full w-full object-contain" aria-hidden="true" />
     </div>
@@ -59,32 +59,32 @@ function BoardVisual() {
 
 function NodesVisual() {
   return (
-    <div className="relative h-[300px] bg-[#f2f3f6] sm:h-[380px] lg:h-[460px]">
+    <div className="relative h-[240px] overflow-hidden bg-[#f2f3f6] sm:h-[320px] md:h-[380px] lg:h-[460px]">
       <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-size-[10px_10px]" />
 
-      <div className="absolute -top-28 left-1/2 h-52 w-[150%] -translate-x-1/2 rounded-[50%] bg-[#e0e3e7] sm:-top-36 sm:h-72" />
-      <div className="absolute -bottom-40 left-1/2 h-52 w-[150%] -translate-x-1/2 rounded-[50%] bg-[#e0e3e7] sm:-bottom-52 sm:h-72" />
+      <div className="absolute -top-[18%] left-1/2 h-[38%] w-[128%] -translate-x-1/2 rounded-[50%] bg-[#dfe3e8]" />
+      <div className="absolute -bottom-[18%] left-1/2 h-[38%] w-[128%] -translate-x-1/2 rounded-[50%] bg-[#dfe3e8]" />
 
-      <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/4">
-        <div className="relative flex h-28 w-28 items-center justify-center rounded-full bg-linear-to-b from-slate-100 via-slate-400 to-slate-600 shadow-[0_18px_40px_rgba(0,0,0,0.18)] ring-8 ring-white/90 sm:h-32 sm:w-32">
-          <img src="/icons/device.svg" alt="" className="h-14 w-14 sm:h-16 sm:w-16" aria-hidden="true" />
+      <div className="absolute left-1/2 top-[52%] z-20 -translate-x-1/2 -translate-y-1/2">
+        <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-b from-slate-100 via-slate-400 to-slate-600 shadow-[0_18px_40px_rgba(0,0,0,0.18)] ring-8 ring-white/90 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-32 lg:w-32">
+          <img src="/icons/device.svg" alt="" className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12" aria-hidden="true" />
         </div>
       </div>
 
-      <div className="absolute left-5 top-12 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-b from-white via-gray-50 to-gray-100 shadow-[0_10px_22px_rgba(0,0,0,0.14)] ring-1 ring-white/90 sm:left-8 sm:top-20 sm:h-20 sm:w-20">
-        <img src="/icons/nodejs.svg" alt="" className="h-10 w-10 sm:h-12 sm:w-12" aria-hidden="true" />
+      <div className="absolute left-[11%] top-[20%] z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/3 items-center justify-center rounded-full bg-white shadow-[0_12px_26px_rgba(15,23,42,0.16)] ring-4 ring-white/70 sm:h-14 sm:w-14 md:h-16 md:w-16">
+        <img src="/icons/nodejs.svg" alt="" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" aria-hidden="true" />
       </div>
 
-      <div className="absolute right-5 top-12 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-b from-white via-gray-50 to-gray-100 shadow-[0_10px_22px_rgba(0,0,0,0.14)] ring-1 ring-white/90 sm:right-8 sm:top-20 sm:h-20 sm:w-20">
-        <img src="/icons/reactjs.svg" alt="" className="h-10 w-10 sm:h-12 sm:w-12" aria-hidden="true" />
+      <div className="absolute right-[11%] top-[20%] z-10 flex h-12 w-12 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_26px_rgba(15,23,42,0.16)] ring-4 ring-white/70 sm:h-14 sm:w-14 md:h-16 md:w-16">
+        <img src="/icons/reactjs.svg" alt="" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" aria-hidden="true" />
       </div>
 
-      <div className="absolute bottom-6 left-5 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-b from-white via-gray-50 to-gray-100 shadow-[0_10px_22px_rgba(0,0,0,0.14)] ring-1 ring-white/90 sm:bottom-8 sm:left-8 sm:h-20 sm:w-20">
-        <img src="/icons/flutter.svg" alt="" className="h-10 w-10 sm:h-12 sm:w-12" aria-hidden="true" />
+      <div className="absolute bottom-[20%] left-[11%] z-10 flex h-12 w-12 -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_26px_rgba(15,23,42,0.16)] ring-4 ring-white/70 sm:h-14 sm:w-14 md:h-16 md:w-16">
+        <img src="/icons/flutter.svg" alt="" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" aria-hidden="true" />
       </div>
 
-      <div className="absolute bottom-6 right-5 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-b from-white via-gray-50 to-gray-100 shadow-[0_10px_22px_rgba(0,0,0,0.14)] ring-1 ring-white/90 sm:bottom-8 sm:right-8 sm:h-20 sm:w-20">
-        <img src="/icons/kotlin.svg" alt="" className="h-10 w-10 sm:h-12 sm:w-12" aria-hidden="true" />
+      <div className="absolute bottom-[20%] right-[11%] z-10 flex h-12 w-12 translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_26px_rgba(15,23,42,0.16)] ring-4 ring-white/70 sm:h-14 sm:w-14 md:h-16 md:w-16">
+        <img src="/icons/kotlin.svg" alt="" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" aria-hidden="true" />
       </div>
     </div>
   );
@@ -92,8 +92,8 @@ function NodesVisual() {
 
 function BarsVisual() {
   return (
-    <div className="relative h-[300px] overflow-hidden rounded-xl bg-[#f3f4f7] p-4 sm:h-[380px] sm:p-5 lg:h-[460px]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(15,23,42,0.08)_1px,transparent_1px)] bg-[size:12px_12px]" />
+    <div className="relative h-[240px] overflow-hidden rounded-xl bg-[#f3f4f7] p-4 sm:h-[320px] sm:p-5 md:h-[380px] lg:h-[460px]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(15,23,42,0.08)_1px,transparent_1px)] bg-size[12px_12px]" />
       <div className="relative flex h-full flex-col justify-between py-1 sm:py-2">
         {barItems.map((item) => {
           const safeId = item.label.toLowerCase().replace(/\s+/g, "-");

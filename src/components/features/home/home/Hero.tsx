@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type MouseEvent,
+} from "react";
 import Lenis from "lenis";
 import HeroBackground from "./HeroBackground";
 import HeroContent from "./HeroContent";
@@ -12,44 +19,43 @@ type HeroProps = {
 };
 
 export default function Hero({ navItems }: HeroProps) {
+  const sectionIds = useMemo(
+    () =>
+      navItems
+        .map((item) => item.href.replace("#", ""))
+        .filter(Boolean),
+    [navItems],
+  );
   const [activeSection, setActiveSection] = useState<string>(
-    navItems[0]?.href?.replace("#", "") ?? "home",
+    sectionIds[0] ?? "home",
   );
   const lenisRef = useRef<Lenis | null>(null);
 
-  useEffect(() => {
-    if (!navItems.length) return;
-
-    const sectionIds = navItems
-      .map((item) => item.href.replace("#", ""))
-      .filter(Boolean);
+  const updateActiveSection = useCallback(() => {
+    if (!sectionIds.length) return;
 
     const sections = sectionIds
       .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
+      .filter((section): section is HTMLElement => Boolean(section))
+      .sort((a, b) => a.offsetTop - b.offsetTop);
 
     if (!sections.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const scrollAnchor = window.innerHeight * 0.35;
+    let currentSection = sections[0];
 
-        if (visible[0]?.target?.id) {
-          setActiveSection(visible[0].target.id);
-        }
-      },
-      {
-        rootMargin: "-35% 0px -55% 0px",
-        threshold: [0.15, 0.35, 0.55, 0.75],
-      },
-    );
+    for (const section of sections) {
+      const rect = section.getBoundingClientRect();
 
-    sections.forEach((section) => observer.observe(section));
+      if (rect.top > scrollAnchor) break;
 
-    return () => observer.disconnect();
-  }, [navItems]);
+      currentSection = section;
+
+      if (rect.bottom > scrollAnchor) break;
+    }
+
+    setActiveSection(currentSection.id);
+  }, [sectionIds]);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -60,20 +66,40 @@ export default function Hero({ navItems }: HeroProps) {
 
     lenisRef.current = lenis;
     let rafId = 0;
+    let scrollSpyRafId = 0;
+
+    const scheduleActiveSectionUpdate = () => {
+      if (scrollSpyRafId) return;
+
+      scrollSpyRafId = requestAnimationFrame(() => {
+        scrollSpyRafId = 0;
+        updateActiveSection();
+      });
+    };
 
     const raf = (time: number) => {
       lenis.raf(time);
       rafId = requestAnimationFrame(raf);
     };
 
+    updateActiveSection();
+    lenis.on("scroll", scheduleActiveSectionUpdate);
+    window.addEventListener("scroll", scheduleActiveSectionUpdate, {
+      passive: true,
+    });
+    window.addEventListener("resize", scheduleActiveSectionUpdate);
     rafId = requestAnimationFrame(raf);
 
     return () => {
       cancelAnimationFrame(rafId);
+      cancelAnimationFrame(scrollSpyRafId);
+      lenis.off("scroll", scheduleActiveSectionUpdate);
+      window.removeEventListener("scroll", scheduleActiveSectionUpdate);
+      window.removeEventListener("resize", scheduleActiveSectionUpdate);
       lenis.destroy();
       lenisRef.current = null;
     };
-  }, []);
+  }, [updateActiveSection]);
 
   const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     if (!href.startsWith("#")) return;
@@ -84,6 +110,7 @@ export default function Hero({ navItems }: HeroProps) {
     if (!target || !lenis) return;
 
     event.preventDefault();
+    setActiveSection(targetId);
     lenis.scrollTo(target, {
       duration: 1.1,
       easing: (t) => 1 - Math.pow(1 - t, 4),
@@ -92,20 +119,23 @@ export default function Hero({ navItems }: HeroProps) {
   };
 
   return (
-    <section
-      id="home"
-      className="relative mx-auto min-h-screen w-full max-w-8xl overflow-hidden rounded-xl bg-gray-200"
-    >
-      <HeroBackground />
+    <>
+      <HeroNavbar
+        navItems={navItems}
+        activeSection={activeSection}
+        onNavClick={handleNavClick}
+      />
 
-      <div className="relative z-10 flex min-h-screen flex-col justify-between px-6 pb-12 pt-8 md:px-10 md:pb-16 md:pt-10">
-        <HeroNavbar
-          navItems={navItems}
-          activeSection={activeSection}
-          onNavClick={handleNavClick}
-        />
-        <HeroContent />
-      </div>
-    </section>
+      <section
+        id="home"
+        className="relative mx-auto min-h-[100svh] w-full max-w-8xl overflow-hidden bg-gray-200 sm:rounded-xl"
+      >
+        <HeroBackground />
+
+        <div className="relative z-10 flex min-h-[100svh] flex-col justify-end px-4 pb-10 pt-28 sm:px-6 sm:pb-12 md:px-10 md:pb-16 md:pt-32">
+          <HeroContent />
+        </div>
+      </section>
+    </>
   );
 }
