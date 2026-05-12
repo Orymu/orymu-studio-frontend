@@ -33,12 +33,12 @@ export default function About() {
   return (
     <section
       id="about"
-      className="mx-auto mt-16 w-full max-w-8xl px-4 py-4 sm:mt-20 sm:px-6 sm:py-6 lg:mt-24 lg:px-10 lg:py-10"
+      className="mx-auto mt-16 w-full max-w-8xl scroll-mt-32 px-4 py-4 sm:mt-20 sm:px-6 sm:py-6 lg:mt-24 lg:px-10 lg:py-10"
     >
-      <div className="flex flex-col gap-8 lg:flex-row lg:justify-between lg:gap-16 xl:gap-24">
+      <div className="flex min-w-0 flex-col gap-8 lg:flex-row lg:justify-between lg:gap-16 xl:gap-24">
         <AboutHeader />
 
-        <div className="grid w-full gap-5 sm:grid-cols-2 lg:flex-1 lg:gap-6">
+        <div className="grid w-full min-w-0 gap-5 md:grid-cols-2 lg:flex-1 lg:gap-6">
           {cards.map((card) => (
             <AboutProcessCard key={card.title} card={card} />
           ))}
