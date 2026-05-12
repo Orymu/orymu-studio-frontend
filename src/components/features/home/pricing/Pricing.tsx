@@ -35,12 +35,12 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="mx-auto mt-16 w-full max-w-8xl px-4 py-4 sm:mt-20 sm:px-6 sm:py-6 lg:mt-24 lg:px-10 lg:py-10"
+      className="mx-auto mt-16 w-full max-w-8xl scroll-mt-32 px-4 py-4 sm:mt-20 sm:px-6 sm:py-6 lg:mt-24 lg:px-10 lg:py-10"
     >
-      <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-6">
+      <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-6">
         <PricingHeader />
 
-        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 md:gap-6">
+        <div className="grid min-w-0 gap-4 sm:gap-6 md:grid-cols-2 md:gap-6">
           {plans.map((plan) => (
             <PricingPlanCard key={plan.name} plan={plan} />
           ))}
