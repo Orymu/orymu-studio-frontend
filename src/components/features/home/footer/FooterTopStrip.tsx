@@ -19,7 +19,7 @@ export default function FooterTopStrip({ email, socialLinks }: FooterTopStripPro
             <p className="text-sm text-[#7c8493]">Contact At</p>
             <a
               href={`mailto:${email}`}
-              className="mt-1 inline-block break-all text-[28px] font-semibold leading-none text-text-brand sm:break-normal sm:text-[32px] lg:text-[36px]"
+              className="mt-1 inline-block break-all text-2xl font-semibold leading-none text-text-brand sm:break-normal sm:text-[32px] lg:text-[36px]"
             >
               {email}
             </a>

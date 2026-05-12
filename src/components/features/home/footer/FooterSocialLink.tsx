@@ -25,7 +25,7 @@ export default function FooterSocialLink({
           <span className="-ml-1 shrink-0 text-[#5f6775] transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
             <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} aria-hidden="true" />
           </span>
-          <p className="text-[28px] font-semibold leading-none text-[#1f2430] sm:text-[32px] lg:text-[36px]">
+          <p className="text-2xl font-semibold leading-none text-[#1f2430] sm:text-[32px] lg:text-[36px]">
             {label}
           </p>
         </div>
