@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 export default function PortfolioHeader() {
   return (
     <div className="space-y-4 lg:max-w-sm">
@@ -11,6 +13,12 @@ export default function PortfolioHeader() {
       <p className="max-w-md text-base leading-relaxed text-text-secondary sm:text-lg">
         Dipercaya oleh para pendiri, tim produk, dan perusahaan.
       </p>
+      <Button
+        asChild
+        className="h-10 rounded-lg px-5 py-6 text-sm text-text-inverse shadow-[0_14px_22px_rgba(15,23,42,0.32)]"
+      >
+        <a href="#portfolio-list">Lihat lebih lanjut</a>
+      </Button>
     </div>
   );
 }

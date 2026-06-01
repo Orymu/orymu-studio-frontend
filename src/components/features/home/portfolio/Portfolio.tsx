@@ -4,6 +4,25 @@ import type { PortfolioItem } from "./portfolio-types";
 
 const portfolioItems: PortfolioItem[] = [
   {
+    name: "MAINTANA",
+    badge: "WEB APPS",
+    description:
+      "Maintana adalah sistem manajemen berbasis web yang dirancang untuk membantu tim facility service dalam memantau inventory, mencatat data kerusakan, mengelola jadwal maintenance, serta melihat riwayat perubahan stok dalam satu platform yang terpusat.",
+    visualType: "web",
+    images: [
+      {
+        src: "/icons/maintana.svg",
+        className:
+          "absolute bottom-[-10%] left-1/2 z-10 h-auto w-[145%] max-w-none -translate-x-1/2 drop-shadow-[0_24px_34px_rgba(15,23,42,0.24)] sm:w-[150%] md:w-[155%]",
+      },
+    ],
+    metrics: [
+      { label: "Duration", value: "3 Weeks" },
+      { label: "User", value: "5+" },
+      { label: "Rate", value: "80%" },
+    ],
+  },
+  {
     name: "ORYMU",
     badge: "MOBILE APPS",
     description:
@@ -57,9 +76,9 @@ export default function Portfolio() {
       <div className="grid min-w-0 items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,0.95fr)] lg:gap-10">
         <PortfolioHeader />
 
-        <div className="flex min-w-0 flex-col gap-10 sm:gap-12">
+        <div id="portfolio-list" className="flex min-w-0 scroll-mt-32 flex-col gap-10 sm:gap-12">
           {portfolioItems.map((item) => (
-            <PortfolioShowcaseCard key={item.badge} item={item} />
+            <PortfolioShowcaseCard key={`${item.name}-${item.badge}`} item={item} />
           ))}
         </div>
       </div>
