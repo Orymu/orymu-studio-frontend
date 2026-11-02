@@ -199,28 +199,28 @@ export default function Hero() {
             </Button>
           </div>
         </div>
-      </div>
 
-      {/* Marquee wrapper is a DIRECT child of the full-width hero <section> */}
-      <div className="hero-marquee-wrapper" aria-label="Karya Pilihan">
-        {/* Row 1: Scrolling Left */}
-        <div className="hero-marquee-track hero-marquee-track--left">
-          {row1.map((item) => (
-            <HeroTile key={`r1-orig-${item.slug}`} item={item} />
-          ))}
-          {row1.map((item) => (
-            <HeroTile key={`r1-dup-${item.slug}`} item={item} isDuplicate={true} />
-          ))}
-        </div>
+        {/* Marquee viewport (clipped inside frame) */}
+        <div className="hero-marquee-wrapper" aria-label="Karya Pilihan">
+          {/* Row 1: Scrolling Left */}
+          <div className="hero-marquee-track hero-marquee-track--left">
+            {row1.map((item) => (
+              <HeroTile key={`r1-orig-${item.slug}`} item={item} />
+            ))}
+            {row1.map((item) => (
+              <HeroTile key={`r1-dup-${item.slug}`} item={item} isDuplicate={true} />
+            ))}
+          </div>
 
-        {/* Row 2: Scrolling Right */}
-        <div className="hero-marquee-track hero-marquee-track--right">
-          {row2.map((item) => (
-            <HeroTile key={`r2-orig-${item.slug}`} item={item} />
-          ))}
-          {row2.map((item) => (
-            <HeroTile key={`r2-dup-${item.slug}`} item={item} isDuplicate={true} />
-          ))}
+          {/* Row 2: Scrolling Right */}
+          <div className="hero-marquee-track hero-marquee-track--right">
+            {row2.map((item) => (
+              <HeroTile key={`r2-orig-${item.slug}`} item={item} />
+            ))}
+            {row2.map((item) => (
+              <HeroTile key={`r2-dup-${item.slug}`} item={item} isDuplicate={true} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

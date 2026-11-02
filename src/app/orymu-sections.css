@@ -442,7 +442,7 @@
   border-left: 1px solid rgba(12, 17, 24, 0.08) !important;
   border-right: 1px solid rgba(12, 17, 24, 0.08) !important;
   pointer-events: none !important;
-  z-index: 1 !important;
+  z-index: 10 !important;
   box-sizing: border-box !important;
 }
 
@@ -611,7 +611,7 @@
   z-index: 2 !important;
 }
 
-/* Hero Portfolio Marquee (Full Viewport Width, Edge to Edge) */
+/* Hero Portfolio Marquee (Clipped inside the Frame) */
 .hero-marquee-wrapper {
   width: 100% !important;
   max-width: 100% !important;
@@ -620,9 +620,9 @@
   right: 0 !important;
   margin: 0 !important;
   margin-top: 56px !important;
+  padding-top: 4px !important;
   padding-bottom: 72px !important;
-  overflow-x: clip !important;
-  overflow-y: visible !important;
+  overflow: hidden !important;
   display: flex !important;
   flex-direction: column !important;
   gap: 20px !important;
