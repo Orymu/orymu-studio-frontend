@@ -40,10 +40,11 @@ function HeroTile({
 }) {
   const content = (
     <Image
-      src={item.media.thumbSrc || item.media.src}
+      src={item.media.src}
       alt={isDuplicate ? "" : `${item.title} preview`}
-      width={360}
-      height={225}
+      width={720}
+      height={450}
+      quality={92}
       loading="lazy"
       sizes="(min-width: 768px) 360px, 260px"
       className="hero-marquee-img"

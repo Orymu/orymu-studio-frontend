@@ -79,9 +79,10 @@ export default function WorkMediaItem({
               alt={`${projectTitle} — tampilan ${index + 1}`}
               width={media.width}
               height={media.height}
+              quality={95}
               priority={isFirst}
               loading={isFirst ? "eager" : "lazy"}
-              sizes="(min-width: 1024px) 60vw, 100vw"
+              sizes="(min-width: 1440px) 1200px, (min-width: 1024px) 65vw, 100vw"
               className="work-detail-img"
             />
           )}

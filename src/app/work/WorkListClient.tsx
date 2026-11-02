@@ -119,13 +119,14 @@ export default function WorkListClient() {
             >
               <div className="work-card-media-wrap">
                 <Image
-                  src={cover.thumbSrc || cover.src}
+                  src={cover?.src || ""}
                   alt={proj.title}
-                  width={560}
-                  height={350}
+                  width={1120}
+                  height={700}
+                  quality={92}
                   priority={idx < 3}
                   loading={idx < 3 ? "eager" : "lazy"}
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
                   className="work-card-img"
                 />
                 {proj.isNew && (
