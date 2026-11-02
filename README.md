@@ -1,133 +1,36 @@
-# Orymu Studio Frontend
-
-Frontend website Orymu Studio menggunakan Next.js App Router, TypeScript, dan Tailwind CSS v4.
-
-## Overview
-
-Project ini berisi landing page modular dengan section:
-
-- Hero
-- About
-- Service
-- Portfolio
-- Pricing
-- Footer
-
-Semua section disusun per folder domain agar lebih mudah dirawat dan di-scale.
-
-## Tech Stack
-
-- Next.js 16 (App Router)
-- React 19
-- TypeScript
-- Tailwind CSS v4
-- Lucide React (icons)
-- Lenis (smooth scroll)
-- shadcn/ui setup (komponen UI dasar)
-
-## Project Structure
-
-```text
-src/
-  app/
-    layout.tsx
-    page.tsx
-    globals.css
-  components/
-    features/
-      index.ts
-      home/
-        index.ts
-        home/
-          Hero.tsx
-          HeroNavbar.tsx
-          HeroContent.tsx
-          HeroBackground.tsx
-          hero-types.ts
-        about/
-          About.tsx
-          AboutHeader.tsx
-          AboutProcessCard.tsx
-          AboutCardVisual.tsx
-          about-types.ts
-        service/
-          Service.tsx
-          ServiceHeader.tsx
-          ServiceTimeline.tsx
-          service-types.ts
-        portfolio/
-          Portfolio.tsx
-          PortfolioHeader.tsx
-          PortfolioShowcaseCard.tsx
-          PortfolioMetrics.tsx
-          portfolio-types.ts
-        pricing/
-          Pricing.tsx
-          PricingHeader.tsx
-          PricingPlanCard.tsx
-          PricingFeatureList.tsx
-          pricing-types.ts
-        footer/
-          Footer.tsx
-          FooterTopStrip.tsx
-          FooterSocialLink.tsx
-          FooterBrandMarquee.tsx
-          FooterBottomBar.tsx
-          footer-types.ts
-    ui/
-      button.tsx
-  lib/
-    utils/
-      utils.ts
-```
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js 20+
-- pnpm
-
-### Install
+First, run the development server:
 
 ```bash
-pnpm install
-```
-
-### Run Dev Server
-
-```bash
+npm run dev
+# or
+yarn dev
+# or
 pnpm dev
+# or
+bun dev
 ```
 
-Akses di `http://localhost:3000`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Available Scripts
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```bash
-pnpm dev         # run dev server (turbopack)
-pnpm build       # static production build (out/)
-pnpm start       # preview static output on port 3000
-pnpm lint        # lint check
-pnpm type-check  # TypeScript check
-pnpm test        # run tests
-pnpm test:watch  # run tests in watch mode
-pnpm db:push     # prisma db push
-pnpm db:studio   # prisma studio
-pnpm db:seed     # seed database
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Styling and Design Tokens
+## Learn More
 
-Design token dikelola di `src/app/globals.css` menggunakan CSS variables (`--bg-*`, `--text-*`, `--border-*`) dan dipetakan ke Tailwind v4 `@theme inline`.
+To learn more about Next.js, take a look at the following resources:
 
-## Notes
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- Path alias `@/*` diarahkan ke `src/*` (lihat `tsconfig.json`).
-- Export section home terpusat di `src/components/features/home/index.ts`.
-- Export global fitur ada di `src/components/features/index.ts`.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deployment
+## Deploy on Vercel
 
-- CI/CD dan deployment ke DigitalOcean Droplet didokumentasikan di `docs/DEPLOYMENT.md`.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
