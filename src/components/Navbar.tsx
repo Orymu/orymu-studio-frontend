@@ -18,27 +18,6 @@ interface SectionItem {
 
 const SECTION_ITEMS: SectionItem[] = [
   {
-    id: "how-it-works",
-    label: "Cara Kerja",
-    href: "#how-it-works",
-    icon: (
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="6" cy="19" r="3" />
-        <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
-        <circle cx="18" cy="5" r="3" />
-      </svg>
-    ),
-  },
-  {
     id: "problem",
     label: "Solusi",
     href: "#problem",
@@ -56,6 +35,27 @@ const SECTION_ITEMS: SectionItem[] = [
         <circle cx="12" cy="12" r="10" />
         <circle cx="12" cy="12" r="6" />
         <circle cx="12" cy="12" r="2" />
+      </svg>
+    ),
+  },
+  {
+    id: "how-it-works",
+    label: "Cara Kerja",
+    href: "#how-it-works",
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="6" cy="19" r="3" />
+        <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
+        <circle cx="18" cy="5" r="3" />
       </svg>
     ),
   },
@@ -134,7 +134,7 @@ export default function Navbar() {
   const panelRef = useRef<HTMLDivElement>(null);
   const { scrollTo, stopScroll, startScroll, isReducedMotion } = useMotion();
 
-  // Scroll spy via IntersectionObserver (runs ONLY on the home page)
+  // Scroll spy via scroll listener + accurate viewport detection
   useEffect(() => {
     if (!isHome) {
       const timer = setTimeout(() => {
@@ -143,48 +143,42 @@ export default function Navbar() {
       return () => clearTimeout(timer);
     }
 
-    const sectionIds = ["hero", "how-it-works", "problem", "work", "pricing", "faqs"];
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
+    const sectionIds = ["hero", "problem", "how-it-works", "work", "pricing", "faqs"];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // If hero is in view, clear active
-        const heroEl = document.getElementById("hero");
-        if (heroEl) {
-          const heroRect = heroEl.getBoundingClientRect();
-          if (heroRect.bottom > 180) {
-            setActiveId("");
-            return;
-          }
-        }
-
-        // Check visible entries
-        const visible = entries.filter((e) => e.isIntersecting);
-        if (!visible.length) return;
-
-        visible.sort((a, b) => {
-          return Math.abs(a.boundingClientRect.top - 100) - Math.abs(b.boundingClientRect.top - 100);
-        });
-
-        const targetId = visible[0].target.id;
-        if (targetId === "hero") {
-          setActiveId("");
-        } else {
-          setActiveId(targetId);
-        }
-      },
-      {
-        rootMargin: "-60px 0px -40% 0px",
-        threshold: [0, 0.15, 0.3, 0.6],
+    const updateActiveSection = () => {
+      // If near bottom of the page, activate the last section (faqs)
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+        setActiveId("faqs");
+        return;
       }
-    );
 
-    elements.forEach((el) => observer.observe(el));
+      const heroEl = document.getElementById("hero");
+      if (heroEl) {
+        const heroRect = heroEl.getBoundingClientRect();
+        if (heroRect.bottom > 200) {
+          setActiveId("");
+          return;
+        }
+      }
+
+      // Check section currently in top viewport reading area
+      for (const id of sectionIds) {
+        if (id === "hero") continue;
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 250 && rect.bottom > 120) {
+          setActiveId(id);
+          return;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    updateActiveSection();
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener("scroll", updateActiveSection);
     };
   }, [isHome, pathname]);
 
@@ -251,6 +245,7 @@ export default function Navbar() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: SectionItem) => {
     if (isHome && item.href.startsWith("#")) {
       e.preventDefault();
+      setActiveId(item.id);
       scrollTo(item.href);
       setMenuOpen(false);
     } else {
