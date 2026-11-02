@@ -41,29 +41,29 @@ export const projects: Project[] = [
     "media": [
       {
         "type": "image",
-        "src": "/work/maintana/1.avif",
-        "thumbSrc": "/work/maintana/1-thumb.avif",
+        "src": "/work/maintana/maintana-fleet-dashboard.avif",
+        "thumbSrc": "/work/maintana/maintana-fleet-dashboard-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/maintana/2.avif",
-        "thumbSrc": "/work/maintana/2-thumb.avif",
+        "src": "/work/maintana/maintana-asset-tracking.avif",
+        "thumbSrc": "/work/maintana/maintana-asset-tracking-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/maintana/3.avif",
-        "thumbSrc": "/work/maintana/3-thumb.avif",
+        "src": "/work/maintana/maintana-maintenance-schedule.avif",
+        "thumbSrc": "/work/maintana/maintana-maintenance-schedule-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/maintana/4.avif",
-        "thumbSrc": "/work/maintana/4-thumb.avif",
+        "src": "/work/maintana/maintana-inventory-records.avif",
+        "thumbSrc": "/work/maintana/maintana-inventory-records-thumb.avif",
         "width": 1400,
         "height": 1086
       }
@@ -86,43 +86,43 @@ export const projects: Project[] = [
     "media": [
       {
         "type": "video",
-        "src": "/work/drope/motion.webm",
-        "poster": "/work/drope/1.avif",
+        "src": "/work/drope/drope-logistics-motion.webm",
+        "poster": "/work/drope/drope-booking-interface.avif",
         "width": 944,
         "height": 720
       },
       {
         "type": "image",
-        "src": "/work/drope/1.avif",
-        "thumbSrc": "/work/drope/1-thumb.avif",
+        "src": "/work/drope/drope-booking-interface.avif",
+        "thumbSrc": "/work/drope/drope-booking-interface-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/drope/2.avif",
-        "thumbSrc": "/work/drope/2-thumb.avif",
+        "src": "/work/drope/drope-dispatch-tracking.avif",
+        "thumbSrc": "/work/drope/drope-dispatch-tracking-thumb.avif",
         "width": 1400,
         "height": 1069
       },
       {
         "type": "image",
-        "src": "/work/drope/3.avif",
-        "thumbSrc": "/work/drope/3-thumb.avif",
+        "src": "/work/drope/drope-order-management.avif",
+        "thumbSrc": "/work/drope/drope-order-management-thumb.avif",
         "width": 1400,
         "height": 1068
       },
       {
         "type": "image",
-        "src": "/work/drope/4.avif",
-        "thumbSrc": "/work/drope/4-thumb.avif",
+        "src": "/work/drope/drope-courier-mobile.avif",
+        "thumbSrc": "/work/drope/drope-courier-mobile-thumb.avif",
         "width": 1400,
         "height": 1069
       },
       {
         "type": "image",
-        "src": "/work/drope/5.avif",
-        "thumbSrc": "/work/drope/5-thumb.avif",
+        "src": "/work/drope/drope-delivery-analytics.avif",
+        "thumbSrc": "/work/drope/drope-delivery-analytics-thumb.avif",
         "width": 1400,
         "height": 1084
       }
@@ -145,22 +145,22 @@ export const projects: Project[] = [
     "media": [
       {
         "type": "image",
-        "src": "/work/arunika-wedding/1.avif",
-        "thumbSrc": "/work/arunika-wedding/1-thumb.avif",
+        "src": "/work/arunika-wedding/arunika-wedding-catalog.avif",
+        "thumbSrc": "/work/arunika-wedding/arunika-wedding-catalog-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/arunika-wedding/2.avif",
-        "thumbSrc": "/work/arunika-wedding/2-thumb.avif",
+        "src": "/work/arunika-wedding/arunika-wedding-vendor-detail.avif",
+        "thumbSrc": "/work/arunika-wedding/arunika-wedding-vendor-detail-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/arunika-wedding/3.avif",
-        "thumbSrc": "/work/arunika-wedding/3-thumb.avif",
+        "src": "/work/arunika-wedding/arunika-wedding-budget-planner.avif",
+        "thumbSrc": "/work/arunika-wedding/arunika-wedding-budget-planner-thumb.avif",
         "width": 1400,
         "height": 1086
       }
@@ -183,43 +183,43 @@ export const projects: Project[] = [
     "media": [
       {
         "type": "video",
-        "src": "/work/ils/motion.webm",
-        "poster": "/work/ils/1.avif",
+        "src": "/work/ils/ils-industrial-motion.webm",
+        "poster": "/work/ils/ils-company-profile-hero.avif",
         "width": 914,
         "height": 720
       },
       {
         "type": "image",
-        "src": "/work/ils/1.avif",
-        "thumbSrc": "/work/ils/1-thumb.avif",
+        "src": "/work/ils/ils-company-profile-hero.avif",
+        "thumbSrc": "/work/ils/ils-company-profile-hero-thumb.avif",
         "width": 1400,
         "height": 1068
       },
       {
         "type": "image",
-        "src": "/work/ils/2.avif",
-        "thumbSrc": "/work/ils/2-thumb.avif",
+        "src": "/work/ils/ils-distribution-network.avif",
+        "thumbSrc": "/work/ils/ils-distribution-network-thumb.avif",
         "width": 1400,
         "height": 1068
       },
       {
         "type": "image",
-        "src": "/work/ils/3.avif",
-        "thumbSrc": "/work/ils/3-thumb.avif",
+        "src": "/work/ils/ils-offshore-logistics.avif",
+        "thumbSrc": "/work/ils/ils-offshore-logistics-thumb.avif",
         "width": 1400,
         "height": 1060
       },
       {
         "type": "image",
-        "src": "/work/ils/4.avif",
-        "thumbSrc": "/work/ils/4-thumb.avif",
+        "src": "/work/ils/ils-integrated-services.avif",
+        "thumbSrc": "/work/ils/ils-integrated-services-thumb.avif",
         "width": 1400,
         "height": 1084
       },
       {
         "type": "image",
-        "src": "/work/ils/5.avif",
-        "thumbSrc": "/work/ils/5-thumb.avif",
+        "src": "/work/ils/ils-global-presence.avif",
+        "thumbSrc": "/work/ils/ils-global-presence-thumb.avif",
         "width": 1400,
         "height": 1104
       }
@@ -242,36 +242,36 @@ export const projects: Project[] = [
     "media": [
       {
         "type": "video",
-        "src": "/work/sira-swiss/motion.webm",
-        "poster": "/work/sira-swiss/1.avif",
+        "src": "/work/sira-swiss/sira-swiss-campaign-motion.webm",
+        "poster": "/work/sira-swiss/sira-swiss-sustainability-hero.avif",
         "width": 928,
         "height": 720
       },
       {
         "type": "image",
-        "src": "/work/sira-swiss/1.avif",
-        "thumbSrc": "/work/sira-swiss/1-thumb.avif",
+        "src": "/work/sira-swiss/sira-swiss-sustainability-hero.avif",
+        "thumbSrc": "/work/sira-swiss/sira-swiss-sustainability-hero-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/sira-swiss/2.avif",
-        "thumbSrc": "/work/sira-swiss/2-thumb.avif",
+        "src": "/work/sira-swiss/sira-swiss-impact-programs.avif",
+        "thumbSrc": "/work/sira-swiss/sira-swiss-impact-programs-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/sira-swiss/3.avif",
-        "thumbSrc": "/work/sira-swiss/3-thumb.avif",
+        "src": "/work/sira-swiss/sira-swiss-public-advocacy.avif",
+        "thumbSrc": "/work/sira-swiss/sira-swiss-public-advocacy-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/sira-swiss/4.avif",
-        "thumbSrc": "/work/sira-swiss/4-thumb.avif",
+        "src": "/work/sira-swiss/sira-swiss-engagement-flow.avif",
+        "thumbSrc": "/work/sira-swiss/sira-swiss-engagement-flow-thumb.avif",
         "width": 1400,
         "height": 1086
       }
@@ -294,57 +294,57 @@ export const projects: Project[] = [
     "media": [
       {
         "type": "image",
-        "src": "/work/niyyah/1.avif",
-        "thumbSrc": "/work/niyyah/1-thumb.avif",
+        "src": "/work/niyyah/niyyah-habit-tracker-home.avif",
+        "thumbSrc": "/work/niyyah/niyyah-habit-tracker-home-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/niyyah/2.avif",
-        "thumbSrc": "/work/niyyah/2-thumb.avif",
+        "src": "/work/niyyah/niyyah-prayer-schedule.avif",
+        "thumbSrc": "/work/niyyah/niyyah-prayer-schedule-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/niyyah/3.avif",
-        "thumbSrc": "/work/niyyah/3-thumb.avif",
+        "src": "/work/niyyah/niyyah-streak-analytics.avif",
+        "thumbSrc": "/work/niyyah/niyyah-streak-analytics-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/niyyah/4.avif",
-        "thumbSrc": "/work/niyyah/4-thumb.avif",
+        "src": "/work/niyyah/niyyah-routine-builder.avif",
+        "thumbSrc": "/work/niyyah/niyyah-routine-builder-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/niyyah/5.avif",
-        "thumbSrc": "/work/niyyah/5-thumb.avif",
+        "src": "/work/niyyah/niyyah-milestones-achieved.avif",
+        "thumbSrc": "/work/niyyah/niyyah-milestones-achieved-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/niyyah/6.avif",
-        "thumbSrc": "/work/niyyah/6-thumb.avif",
+        "src": "/work/niyyah/niyyah-mindful-journal.avif",
+        "thumbSrc": "/work/niyyah/niyyah-mindful-journal-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/niyyah/7.avif",
-        "thumbSrc": "/work/niyyah/7-thumb.avif",
+        "src": "/work/niyyah/niyyah-appearance-modes.avif",
+        "thumbSrc": "/work/niyyah/niyyah-appearance-modes-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/niyyah/8.avif",
-        "thumbSrc": "/work/niyyah/8-thumb.avif",
+        "src": "/work/niyyah/niyyah-monthly-summary.avif",
+        "thumbSrc": "/work/niyyah/niyyah-monthly-summary-thumb.avif",
         "width": 1400,
         "height": 1086
       }
@@ -367,8 +367,8 @@ export const projects: Project[] = [
     "media": [
       {
         "type": "image",
-        "src": "/work/kevly/1.avif",
-        "thumbSrc": "/work/kevly/1-thumb.avif",
+        "src": "/work/kevly/kevly-wallet-dashboard.avif",
+        "thumbSrc": "/work/kevly/kevly-wallet-dashboard-thumb.avif",
         "width": 1400,
         "height": 1086
       }
@@ -391,29 +391,29 @@ export const projects: Project[] = [
     "media": [
       {
         "type": "video",
-        "src": "/work/undangan-pernikahan-digital/motion.webm",
-        "poster": "/work/undangan-pernikahan-digital/2.avif",
+        "src": "/work/undangan-pernikahan-digital/undangan-pernikahan-motion.webm",
+        "poster": "/work/undangan-pernikahan-digital/undangan-pernikahan-schedule-venue.avif",
         "width": 928,
         "height": 720
       },
       {
         "type": "image",
-        "src": "/work/undangan-pernikahan-digital/1.avif",
-        "thumbSrc": "/work/undangan-pernikahan-digital/1-thumb.avif",
+        "src": "/work/undangan-pernikahan-digital/undangan-pernikahan-hero.avif",
+        "thumbSrc": "/work/undangan-pernikahan-digital/undangan-pernikahan-hero-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/undangan-pernikahan-digital/2.avif",
-        "thumbSrc": "/work/undangan-pernikahan-digital/2-thumb.avif",
+        "src": "/work/undangan-pernikahan-digital/undangan-pernikahan-schedule-venue.avif",
+        "thumbSrc": "/work/undangan-pernikahan-digital/undangan-pernikahan-schedule-venue-thumb.avif",
         "width": 1400,
         "height": 1086
       },
       {
         "type": "image",
-        "src": "/work/undangan-pernikahan-digital/3.avif",
-        "thumbSrc": "/work/undangan-pernikahan-digital/3-thumb.avif",
+        "src": "/work/undangan-pernikahan-digital/undangan-pernikahan-rsvp-guestbook.avif",
+        "thumbSrc": "/work/undangan-pernikahan-digital/undangan-pernikahan-rsvp-guestbook-thumb.avif",
         "width": 1400,
         "height": 1007
       }
