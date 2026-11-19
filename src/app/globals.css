@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./orymu-sections.css";
+@import "../components/iso/iso.css";
 
 :root {
   --navy-900: #050c2e;

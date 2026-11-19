@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import Button from "./Button";
-import DitherO from "./DitherO";
+import { FooterDispatchFigure } from "./figures/footer/FooterDispatchFigure";
 import { EASE, DURATION, VIEWPORT_SETTINGS } from "@/lib/motion";
 import { useMotion } from "./MotionProvider";
 
@@ -75,16 +75,15 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Art: <DitherO /> on the right of the upper row */}
+          {/* Art: Interactive Isometric Project Dispatch & Ticket Press */}
           <motion.div
-            className="footer-artwork"
-            aria-hidden="true"
+            className="footer-artwork footer-artwork--iso"
             initial={isReducedMotion ? false : { opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={VIEWPORT_SETTINGS}
             transition={{ duration: DURATION.slow, ease: EASE }}
           >
-            <DitherO mode="dither" intensity={0.6} />
+            <FooterDispatchFigure />
           </motion.div>
         </div>
 

@@ -180,20 +180,64 @@
   display: block !important;
 }
 
-/* Group 2: Center Section Icons Pill (48px high, perfectly lined up) */
-.nav-odama-center-pill {
+/* Group 2: Gooey Metaball Section Icons Dock */
+.nav-odama-center-pill.nav-goo-dock {
   grid-column: 2 !important;
   justify-self: center !important;
-  height: 48px !important;
+  height: 56px !important;
+  position: relative !important;
   box-sizing: border-box !important;
-  background: #ffffff !important;
-  border: 1px solid rgba(5, 12, 46, 0.12) !important;
-  border-radius: 999px !important;
-  padding: 2px 4px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 6px 18px rgba(12, 17, 24, 0.11)) drop-shadow(0 1px 3px rgba(12, 17, 24, 0.08)) !important;
+}
+
+.nav-goo-backdrop {
+  position: absolute !important;
+  inset: -14px -12px !important;
+  padding: 14px 20px !important;
   display: flex !important;
   align-items: center !important;
-  gap: 2px !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  filter: url(#nav-goo-filter) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.nav-goo-slot {
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+}
+
+.nav-goo-lobe {
+  width: 43px !important;
+  height: 43px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  transition: transform 260ms cubic-bezier(0.32, 0.72, 0, 1) !important;
+}
+
+.nav-goo-lobe.is-active {
+  transform: scale(1.26) !important;
+}
+
+.nav-goo-items {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 3px !important;
 }
 
 .nav-odama-icon-btn {
@@ -204,20 +248,20 @@
   align-items: center !important;
   justify-content: center !important;
   position: relative !important;
-  color: rgba(12, 17, 24, 0.70) !important;
+  color: #9ca0a8 !important;
   text-decoration: none !important;
   background: transparent !important;
-  transition: color 200ms ease, background-color 200ms ease !important;
+  transition: color 200ms ease, transform 200ms ease !important;
 }
 
-/* Motion-driven shared layoutId indicator */
+/* Crisp inner disc inside the larger active white gooey lobe */
 .nav-active-indicator {
   position: absolute !important;
   inset: 0 !important;
   border-radius: 50% !important;
-  background: var(--btn-dark-bg) !important;
-  border: 1px solid var(--btn-dark-border) !important;
-  box-shadow: var(--btn-dark-shadow) !important;
+  background: #f0f1f4 !important;
+  border: 1px solid rgba(12, 17, 24, 0.06) !important;
+  box-shadow: inset 0 1px 2px rgba(12, 17, 24, 0.05) !important;
   z-index: 0 !important;
   pointer-events: none !important;
 }
@@ -225,15 +269,20 @@
 .nav-odama-icon-btn svg {
   position: relative !important;
   z-index: 1 !important;
+  transition: transform 200ms ease !important;
 }
 
 .nav-odama-icon-btn:hover {
-  color: var(--ink, #0c1118) !important;
-  background-color: rgba(5, 12, 46, 0.05) !important;
+  color: #4a4f5e !important;
+  background-color: transparent !important;
+}
+
+.nav-odama-icon-btn:hover svg {
+  transform: scale(1.06) !important;
 }
 
 .nav-odama-icon-btn.is-active {
-  color: #ffffff !important;
+  color: #0c1118 !important;
   background-color: transparent !important;
 }
 
@@ -1084,23 +1133,69 @@
   justify-content: center !important;
 }
 
-/* Card Title: 36px below keycap-row, 22px medium, near-black */
+/* Top Header Row inside Industri Card (Title left, 01 + [W] badge right) */
+.industri-card-top {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  width: 100% !important;
+  margin-bottom: 12px !important;
+}
+
+.industri-card-meta {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+  user-select: none !important;
+}
+
+.industri-card-index {
+  font-family: var(--font-mono), ui-monospace, monospace !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #8c8f9c !important;
+  letter-spacing: 0.04em !important;
+}
+
+.industri-card-kbd {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 24px !important;
+  height: 24px !important;
+  padding: 0 6px !important;
+  border-radius: 6px !important;
+  background-color: #f4f4f5 !important;
+  border: 1px solid rgba(12, 17, 24, 0.09) !important;
+  box-shadow: 0 1px 0 rgba(12, 17, 24, 0.04) !important;
+  font-family: var(--font-mono), ui-monospace, monospace !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #525560 !important;
+  line-height: 1 !important;
+}
+
+/* Card Title: Top-left clean heading */
 .industri-card-title {
-  font-size: 22px !important;
+  font-size: 20px !important;
   font-weight: 500 !important;
   line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
   color: var(--ink, #0c1118) !important;
-  margin: 36px 0 0 0 !important;
+  margin: 0 !important;
   font-family: var(--font-sans), -apple-system, sans-serif !important;
 }
 
-/* Card Description: 12px below title, muted monospace */
+/* Card Description: Bottom concise copy */
 .industri-card-desc {
-  font-family: var(--font-mono), ui-monospace, monospace !important;
-  font-size: 14px !important;
-  line-height: 1.7 !important;
+  font-family: var(--font-sans), -apple-system, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
   color: var(--card-muted, #6b7080) !important;
-  margin: 12px 0 0 0 !important;
+  margin: auto 0 0 0 !important;
+  padding-top: 12px !important;
 }
 
 @media (max-width: 899px) {
@@ -1123,24 +1218,27 @@
   position: relative;
 }
 
-/* Desktop (from 900px up): Keep two-column row */
+/* Centered heading stack (matching Fokus Solusi section above) */
 .process-heading-row {
   display: flex !important;
-  align-items: flex-end !important;
-  justify-content: space-between !important;
-  gap: 32px !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 16px !important;
   padding: 40px 28px 0 28px !important;
   margin-bottom: 0 !important;
   box-sizing: border-box !important;
-  flex-wrap: wrap !important;
   min-height: 0 !important;
   height: auto !important;
 }
 
 .process-heading-left {
-  flex: 1 1 380px !important;
+  flex: none !important;
+  width: 100% !important;
   min-height: 0 !important;
   height: auto !important;
+  text-align: center !important;
 }
 
 .process-heading-title {
@@ -1150,6 +1248,7 @@
   line-height: 1.15 !important;
   color: var(--ink) !important;
   margin: 0 !important;
+  text-align: center !important;
 }
 
 @media (min-width: 768px) {
@@ -1165,11 +1264,14 @@
 }
 
 .process-heading-right {
-  flex: 0 1 480px !important;
+  flex: none !important;
+  width: 100% !important;
+  max-width: 560px !important;
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 16px !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 20px !important;
   min-height: 0 !important;
   height: auto !important;
 }
@@ -1180,18 +1282,19 @@
   line-height: 1.6 !important;
   color: var(--card-muted, #6b7080) !important;
   margin: 0 !important;
+  text-align: center !important;
 }
 
-/* Below 900px: E1 Fix - Single column, zero empty gap */
 @media (max-width: 899px) {
   .process-heading-row {
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 20px !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px !important;
     min-height: 0 !important;
     height: auto !important;
-    padding: 40px 28px 0 28px !important;
+    padding: 40px 20px 0 20px !important;
     margin-bottom: 0 !important;
   }
 
@@ -2228,7 +2331,7 @@ html:not(.js) .faq-row-chevron--open {
   color: var(--navy-900, #050c2e) !important;
 }
 
-/* Art: <DitherO /> */
+/* Art: <DitherO /> & Isometric Footer Machine */
 .footer-artwork {
   position: absolute !important;
   right: 6% !important;
@@ -2241,6 +2344,32 @@ html:not(.js) .faq-row-chevron--open {
   z-index: 1 !important;
   mask-image: radial-gradient(closest-side, #000000 60%, transparent 100%) !important;
   -webkit-mask-image: radial-gradient(closest-side, #000000 60%, transparent 100%) !important;
+}
+
+.footer-artwork.footer-artwork--iso {
+  position: absolute !important;
+  right: 28px !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-48%) !important;
+  width: 500px !important;
+  aspect-ratio: auto !important;
+  pointer-events: auto !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  z-index: 1 !important;
+}
+
+.footer-iso-stage {
+  --anatomy-card: var(--light-1, #f6f6f6);
+  --anatomy-paper: var(--light-1, #f6f6f6);
+  width: 100%;
+}
+
+.footer-iso-stage .iso-svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ==========================================================================
@@ -2313,6 +2442,17 @@ html:not(.js) .faq-row-chevron--open {
     right: -40px !important;
     bottom: 0 !important;
     transform: translateY(50%) !important;
+  }
+
+  .footer-artwork.footer-artwork--iso {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 24px auto 0 auto !important;
   }
 
   .footer-buttons-row {

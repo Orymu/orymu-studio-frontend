@@ -22,19 +22,8 @@ const SECTION_ITEMS: SectionItem[] = [
     label: "Solusi",
     href: "#problem",
     icon: (
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="6" />
-        <circle cx="12" cy="12" r="2" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 16.5c-3.58 0-6.5-2.92-6.5-6.5S8.42 5.5 12 5.5s6.5 2.92 6.5 6.5-2.92 6.5-6.5 6.5zm0-9.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
       </svg>
     ),
   },
@@ -43,19 +32,8 @@ const SECTION_ITEMS: SectionItem[] = [
     label: "Cara Kerja",
     href: "#how-it-works",
     icon: (
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="6" cy="19" r="3" />
-        <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
-        <circle cx="18" cy="5" r="3" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18 2a3 3 0 0 0-2.82 2H9a4.5 4.5 0 0 0 0 9h6a2.5 2.5 0 0 1 0 5H8.82A3 3 0 1 0 6 22a3 3 0 0 0 2.82-2H15a4.5 4.5 0 0 0 0-9H9a2.5 2.5 0 0 1 0-5h6.18A3 3 0 1 0 18 2z" />
       </svg>
     ),
   },
@@ -64,20 +42,8 @@ const SECTION_ITEMS: SectionItem[] = [
     label: "Portofolio",
     href: "#work",
     icon: (
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="3" y="3" width="7" height="7" rx="1.5" />
-        <rect x="14" y="3" width="7" height="7" rx="1.5" />
-        <rect x="14" y="14" width="7" height="7" rx="1.5" />
-        <rect x="3" y="14" width="7" height="7" rx="1.5" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M9 3a2 2 0 0 0-2 2v1H4a2 2 0 0 0-2 2v3.5c2.9 1.3 6.3 2 10 2s7.1-.7 10-2V8a2 2 0 0 0-2-2h-3V5a2 2 0 0 0-2-2H9zm0 3V5h6v1H9zm-7 7.1V19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.9c-2.8 1.1-6 1.7-9.2 1.8V16a1 1 0 1 1-2 0v-1.1C7.9 14.8 4.8 14.2 2 13.1z" />
       </svg>
     ),
   },
@@ -86,18 +52,8 @@ const SECTION_ITEMS: SectionItem[] = [
     label: "Biaya",
     href: "#pricing",
     icon: (
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" />
-        <path d="M7 7h.01" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.59 2.59A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .59 1.42l8.83 8.83a2 2 0 0 0 2.83 0l7.17-7.17a2 2 0 0 0 0-2.83l-8.83-8.83zM7 8.5A1.5 1.5 0 1 1 7 5.5a1.5 1.5 0 0 1 0 3z" />
       </svg>
     ),
   },
@@ -106,19 +62,8 @@ const SECTION_ITEMS: SectionItem[] = [
     label: "FAQ",
     href: "#faqs",
     icon: (
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-        <line x1="12" y1="17" x2="12.01" y2="17" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-6.75-.9.92C12.45 12.9 12 13.5 12 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
       </svg>
     ),
   },
@@ -274,34 +219,65 @@ export default function Navbar() {
         </div>
       </Link>
 
-      {/* Group 2 (Center): Section Icons Pill */}
-      <nav data-nav-group="center" className="nav-odama-center-pill" aria-label="Navigasi Bagian Halaman">
-        {SECTION_ITEMS.map((item) => {
-          const isActive = activeId === item.id;
-          const targetHref = getItemHref(item);
-          return (
-            <Link
-              key={item.id}
-              href={targetHref}
-              className={`nav-odama-icon-btn ${isActive ? "is-active" : ""}`}
-              aria-label={item.label}
-              onClick={(e) => handleNavClick(e, item)}
-            >
-              {isActive && (
-                <motion.span
-                  layoutId="nav-active-indicator"
-                  className="nav-active-indicator"
-                  transition={isReducedMotion ? { duration: 0 } : SPRING_NAV}
-                  aria-hidden="true"
-                />
-              )}
-              {item.icon}
-              <span className="nav-odama-tooltip" aria-hidden="true">
-                {item.label}
+      {/* Group 2 (Center): Gooey Metaball Section Icons Dock */}
+      <nav data-nav-group="center" className="nav-odama-center-pill nav-goo-dock" aria-label="Navigasi Bagian Halaman">
+        {/* Hidden SVG Gooey Filter for smooth metaball pinched bridges */}
+        <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
+          <defs>
+            <filter id="nav-goo-filter">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="7.5" result="blur" />
+              <feColorMatrix
+                in="blur"
+                mode="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9"
+                result="goo"
+              />
+              <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+          </defs>
+        </svg>
+
+        {/* Filtered Gooey Background Lobes Layer */}
+        <div className="nav-goo-backdrop" aria-hidden="true">
+          {SECTION_ITEMS.map((item) => {
+            const isActive = activeId === item.id;
+            return (
+              <span key={item.id} className="nav-goo-slot">
+                <span className={`nav-goo-lobe ${isActive ? "is-active" : ""}`} />
               </span>
-            </Link>
-          );
-        })}
+            );
+          })}
+        </div>
+
+        {/* Crisp Foreground Layer: Active White Disc + Filled Icons + Tooltips */}
+        <div className="nav-goo-items">
+          {SECTION_ITEMS.map((item) => {
+            const isActive = activeId === item.id;
+            const targetHref = getItemHref(item);
+            return (
+              <Link
+                key={item.id}
+                href={targetHref}
+                className={`nav-odama-icon-btn ${isActive ? "is-active" : ""}`}
+                aria-label={item.label}
+                onClick={(e) => handleNavClick(e, item)}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active-indicator"
+                    className="nav-active-indicator"
+                    transition={isReducedMotion ? { duration: 0 } : SPRING_NAV}
+                    aria-hidden="true"
+                  />
+                )}
+                {item.icon}
+                <span className="nav-odama-tooltip" aria-hidden="true">
+                  {item.label}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
       </nav>
 
       {/* Group 3 (Right): CTA Button & Mobile Toggle */}

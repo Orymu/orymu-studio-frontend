@@ -4,49 +4,45 @@ import React from "react";
 import { motion } from "motion/react";
 import SectionBar from "./SectionBar";
 import { BullseyeIcon } from "./SectionIcons";
-import { EASE, DURATION, VIEWPORT_SETTINGS, SPRING_KEYCAP } from "@/lib/motion";
+import { EASE, DURATION, VIEWPORT_SETTINGS } from "@/lib/motion";
 import { useMotion } from "./MotionProvider";
-import {
-  StorefrontGlyph,
-  CalendarGlyph,
-  CodeBracketsGlyph,
-  LayersGlyph,
-  FunnelGlyph,
-  BarChartGlyph,
-} from "./KeycapGlyphs";
+import { SmartphoneCardFigure } from "./figures/smartphone/live";
+import { TestRigCardFigure } from "./figures/test-rig/figure";
+import { SpotPlateCardFigure } from "./figures/spot-plate/figure";
 
 interface SolutionCard {
   id: string;
+  index: string;
+  hotkey: string;
   title: string;
   description: string;
-  darkGlyph: React.ReactNode;
-  blueGlyph: React.ReactNode;
+  figure: React.ReactNode;
 }
 
 const cardsData: SolutionCard[] = [
   {
     id: "local-business",
+    index: "01",
+    hotkey: "L",
     title: "Bisnis Lokal & Layanan",
-    description:
-      "Kami membangun sistem lead dan booking yang sederhana namun efektif untuk mengubah perhatian pengunjung menjadi pertanyaan dan pemesanan.",
-    darkGlyph: <StorefrontGlyph />,
-    blueGlyph: <CalendarGlyph />,
+    description: "Sistem lead dan booking otomatis yang mengubah pengunjung menjadi pelanggan.",
+    figure: <SmartphoneCardFigure />,
   },
   {
     id: "product-teams",
+    index: "02",
+    hotkey: "P",
     title: "Untuk Tim Produk",
-    description:
-      "Membantu tim menstabilkan dan mempercepat pengembangan produk yang sedang berjalan. Fokus pada penurunan risiko teknis dan delivery terprediksi.",
-    darkGlyph: <CodeBracketsGlyph />,
-    blueGlyph: <LayersGlyph />,
+    description: "Stabilkan arsitektur dan percepat rilis produk tanpa risiko teknis.",
+    figure: <TestRigCardFigure />,
   },
   {
     id: "conversion-flow",
+    index: "03",
+    hotkey: "A",
     title: "Satu Alur Aksi Terukur",
-    description:
-      "Fokus pada satu jalur konversi utama yang jelas, mudah diakses pengguna, dan dapat diukur secara transparan setiap metriknya.",
-    darkGlyph: <FunnelGlyph />,
-    blueGlyph: <BarChartGlyph />,
+    description: "Satu jalur konversi utama yang jelas, cepat diakses, dan terukur.",
+    figure: <SpotPlateCardFigure />,
   },
 ];
 
@@ -93,47 +89,19 @@ export default function WhySection() {
               viewport={VIEWPORT_SETTINGS}
               transition={{ duration: DURATION.base, ease: EASE, delay: idx * 0.1 }}
             >
-              {/* Row of two chunky 3D keycaps with '+' between them */}
-              <div className="keycap-row">
-                <motion.span
-                  className="keycap keycap--dark"
-                  initial={isReducedMotion ? false : { y: -8, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={VIEWPORT_SETTINGS}
-                  transition={
-                    isReducedMotion
-                      ? { duration: 0 }
-                      : {
-                          ...SPRING_KEYCAP,
-                          delay: idx * 0.1 + 0.12,
-                        }
-                  }
-                >
-                  {card.darkGlyph}
-                </motion.span>
-                <span className="keycap-plus" aria-hidden="true">
-                  +
-                </span>
-                <motion.span
-                  className="keycap keycap--blue"
-                  initial={isReducedMotion ? false : { y: -8, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={VIEWPORT_SETTINGS}
-                  transition={
-                    isReducedMotion
-                      ? { duration: 0 }
-                      : {
-                          ...SPRING_KEYCAP,
-                          delay: idx * 0.1 + 0.2, // 0.08s after dark key
-                        }
-                  }
-                >
-                  {card.blueGlyph}
-                </motion.span>
+              {/* Top Row: Title on Left, Index + Hotkey Badge on Right */}
+              <div className="industri-card-top">
+                <h3 className="industri-card-title">{card.title}</h3>
+                <div className="industri-card-meta" aria-hidden="true">
+                  <span className="industri-card-index">{card.index}</span>
+                  <kbd className="industri-card-kbd">{card.hotkey}</kbd>
+                </div>
               </div>
 
-              {/* Title & Monospace Description */}
-              <h3 className="industri-card-title">{card.title}</h3>
+              {/* Center: Interactive Isometric Anatomy Figure */}
+              {card.figure}
+
+              {/* Bottom: Concise Description */}
               <p className="industri-card-desc">{card.description}</p>
             </motion.article>
           ))}

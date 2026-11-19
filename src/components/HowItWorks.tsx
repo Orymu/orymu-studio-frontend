@@ -5,66 +5,60 @@ import { motion } from "motion/react";
 import SectionBar from "./SectionBar";
 import Button from "./Button";
 import { RouteIcon } from "./SectionIcons";
-import {
-  MagnifierGlyph,
-  PenNibGlyph,
-  CodeBracketsGlyph,
-  RocketGlyph,
-  BarChartGlyph,
-  KeyGlyph,
-} from "./KeycapGlyphs";
 import { EASE, DURATION, VIEWPORT_SETTINGS } from "@/lib/motion";
 import { useMotion } from "./MotionProvider";
+import { ProcessCardFigure, type ProcessVariant } from "./figures/process/ProcessFigures";
 
 interface ProcessStep {
   index: string;
+  hotkey: string;
   title: string;
   description: string;
-  glyph: React.ReactNode;
+  variant: ProcessVariant;
 }
 
 const steps: ProcessStep[] = [
   {
-    index: "(001)",
+    index: "01",
+    hotkey: "D",
     title: "Discover",
-    description:
-      "Definisi tujuan bisnis, riset kebutuhan pengguna (ICP), dan penetapan metrik sukses terukur sebelum masuk tahap eksekusi.",
-    glyph: <MagnifierGlyph />,
+    description: "Riset kebutuhan pengguna (ICP) dan penetapan metrik bisnis terukur sebelum eksekusi.",
+    variant: "discover",
   },
   {
-    index: "(002)",
+    index: "02",
+    hotkey: "S",
     title: "Design",
-    description:
-      "Penerjemahan insight menjadi user flow terarah, sistem desain komponen UI modular, serta prototipe interaktif siap uji.",
-    glyph: <PenNibGlyph />,
+    description: "User flow terarah, sistem komponen UI modular, dan prototipe interaktif siap uji.",
+    variant: "design",
   },
   {
-    index: "(003)",
+    index: "03",
+    hotkey: "B",
     title: "Build",
-    description:
-      "Implementasi kode modular, bersih, dan scalable dengan Next.js & TypeScript tanpa template lambat atau technical debt.",
-    glyph: <CodeBracketsGlyph />,
+    description: "Kode modular, bersih, dan scalable dengan Next.js & TypeScript tanpa technical debt.",
+    variant: "build",
   },
   {
-    index: "(004)",
+    index: "04",
+    hotkey: "L",
     title: "Launch",
-    description:
-      "Quality assurance menyeluruh, verifikasi form booking dan integrasi API, optimasi performa, serta kesiapan rilis produksi.",
-    glyph: <RocketGlyph />,
+    description: "QA menyeluruh, verifikasi integrasi API, optimasi performa, dan rilis produksi.",
+    variant: "launch",
   },
   {
-    index: "(005)",
+    index: "05",
+    hotkey: "I",
     title: "Improve",
-    description:
-      "Monitoring stabilitas, reliabilitas sistem, dan iterasi fitur berkelanjutan berbasis metrik nyata dan feedback pengguna.",
-    glyph: <BarChartGlyph />,
+    description: "Monitoring stabilitas sistem dan iterasi fitur berkelanjutan berbasis metrik nyata.",
+    variant: "improve",
   },
   {
-    index: "(006)",
+    index: "06",
+    hotkey: "K",
     title: "Hak Milik Penuh",
-    description:
-      "100% kepemilikan penuh atas seluruh source code, desain Figma, dokumentasi, dan hak cipta tanpa keterikatan lisensi tersembunyi.",
-    glyph: <KeyGlyph />,
+    description: "100% kepemilikan penuh atas source code, desain Figma, dan dokumentasi.",
+    variant: "ownership",
   },
 ];
 
@@ -110,20 +104,26 @@ export default function HowItWorks() {
           {steps.map((step, idx) => (
             <motion.article
               key={step.index}
-              className="card-v2 process-card-v2"
+              className="card-v2 industri-card process-card-v2"
               initial={isReducedMotion ? false : { opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT_SETTINGS}
               transition={{ duration: DURATION.base, ease: EASE, delay: idx * 0.08 }}
             >
-              <div className="process-card-header">
-                <div className="keycap keycap--dark keycap--44" aria-hidden="true">
-                  {step.glyph}
+              {/* Top Row: Title on Left, Index + Hotkey Badge on Right */}
+              <div className="industri-card-top">
+                <h3 className="industri-card-title">{step.title}</h3>
+                <div className="industri-card-meta" aria-hidden="true">
+                  <span className="industri-card-index">{step.index}</span>
+                  <kbd className="industri-card-kbd">{step.hotkey}</kbd>
                 </div>
-                <span className="process-card-index">{step.index}</span>
               </div>
-              <h3 className="process-card-title">{step.title}</h3>
-              <p className="process-card-desc">{step.description}</p>
+
+              {/* Center: Interactive Isometric Anatomy Machine */}
+              <ProcessCardFigure variant={step.variant} />
+
+              {/* Bottom: Concise Description */}
+              <p className="industri-card-desc">{step.description}</p>
             </motion.article>
           ))}
         </div>
