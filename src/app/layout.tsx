@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import MotionProvider from "@/components/MotionProvider";
+import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
@@ -90,6 +91,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.className} min-h-full flex flex-col bg-[var(--light-1,#f6f6f6)] text-[var(--ink,#0c1118)]`}>
         <MotionProvider>
+          <CustomCursor />
           <Navbar />
           <main className="canvas-page flex-1">
             {children}

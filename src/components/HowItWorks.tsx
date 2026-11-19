@@ -76,26 +76,24 @@ export default function HowItWorks() {
           icon={<RouteIcon />}
         />
 
-        {/* Heading Row */}
+        {/* Editorial Section Header Row (matching Portfolio header layout) */}
         <motion.div
-          className="process-heading-row"
+          className="portfolio-minimal-header-row"
           initial={isReducedMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT_SETTINGS}
           transition={{ duration: DURATION.base, ease: EASE }}
         >
-          <div className="process-heading-left">
-            <h2 className="process-heading-title">Cara Kami Bekerja</h2>
-          </div>
-          <div className="process-heading-right">
-            <p className="process-heading-subtext">
+          <div className="portfolio-minimal-header-left">
+            <h2 className="portfolio-minimal-title">Cara Kami Bekerja</h2>
+            <p className="portfolio-minimal-subtitle">
               Proses yang sederhana &amp; transparan dari ide hingga produk siap rilis.
             </p>
-            <div>
-              <Button variant="dark" href="#contact">
-                Jadwalkan Diskusi
-              </Button>
-            </div>
+          </div>
+          <div className="portfolio-minimal-header-right">
+            <Button variant="dark" href="#contact">
+              Jadwalkan Diskusi
+            </Button>
           </div>
         </motion.div>
 

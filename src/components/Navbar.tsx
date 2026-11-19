@@ -280,7 +280,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Group 3 (Right): CTA Button & Mobile Toggle */}
+      {/* Group 3 (Right): CTA Button & Mobile Icon CTA */}
       <div data-nav-group="right" className="nav-odama-right-group">
         <Button
           variant="dark"
@@ -292,6 +292,24 @@ export default function Navbar() {
           <span className="nav-cta-text-full">MULAI KONSULTASI</span>
           <span className="nav-cta-text-mobile">KONSULTASI</span>
         </Button>
+
+        {/* Mobile Circular Icon CTA (<900px) */}
+        <Link
+          href={isHome ? "#pricing" : "/#pricing"}
+          className="nav-cta-mobile-icon"
+          aria-label="Mulai Konsultasi"
+          title="Mulai Konsultasi"
+          onClick={(e) => {
+            if (isHome) {
+              e.preventDefault();
+              scrollTo("#pricing");
+            }
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3 9H7V9h10v2zm-4 4H7v-2h6v2z" />
+          </svg>
+        </Link>
 
         {/* Mobile Hamburger Toggle (<900px) */}
         <button

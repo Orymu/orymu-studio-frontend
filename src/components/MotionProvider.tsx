@@ -58,11 +58,12 @@ export default function MotionProvider({ children }: { children: React.ReactNode
       };
     }
 
-    // 1. Initialize Lenis (smooth wheel only, anchors enabled)
+    // 1. Initialize Lenis (lerp-based smooth wheel, native scroll-behavior disabled)
     const lenis = new Lenis({
       autoRaf: false,
-      duration: 1.1,
+      lerp: 0.1,
       smoothWheel: true,
+      wheelMultiplier: 0.95,
       syncTouch: false,
       anchors: false, // We handle smooth anchor scroll with custom offset
     });

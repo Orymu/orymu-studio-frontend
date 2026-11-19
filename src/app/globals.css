@@ -71,7 +71,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   background-color: var(--light-1, #f6f6f6);
   color: var(--ink, #0c1118);
   font-family: var(--font-sans);
