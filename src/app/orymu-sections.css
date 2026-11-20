@@ -656,6 +656,21 @@
   z-index: 6 !important;
 }
 
+@media (max-width: 639px) {
+  .hero-light .hero-actions {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .hero-light .hero-actions .btn {
+    height: 40px !important;
+    padding: 0 8px 0 12px !important;
+    font-size: 11.5px !important;
+    gap: 8px !important;
+  }
+}
+
 /* 1) Eyebrow Badge */
 .hero-exp-label {
   display: inline-flex;
@@ -2308,21 +2323,30 @@ html:not(.js) .faq-row-chevron--open {
 .footer-upper-row {
   position: relative !important;
   overflow: hidden !important;
-  min-height: 300px !important;
   background-color: var(--light-1, #f6f6f6) !important;
   border-top: none !important;
-  padding: 36px 40px !important;
+  padding: 44px 44px 28px 44px !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: space-between !important;
   box-sizing: border-box !important;
   width: 100% !important;
   scroll-margin-top: 84px !important;
+  gap: 28px !important;
 }
 
-.footer-upper-content {
+.footer-cta-header {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  gap: 36px !important;
   position: relative !important;
   z-index: 2 !important;
+}
+
+.footer-cta-text {
+  flex: 1 1 auto !important;
   max-width: 600px !important;
 }
 
@@ -2333,7 +2357,7 @@ html:not(.js) .faq-row-chevron--open {
   letter-spacing: -0.02em !important;
   color: var(--ink, #0c1118) !important;
   margin: 0 !important;
-  max-width: 520px !important;
+  max-width: 540px !important;
   font-family: var(--font-sans), system-ui, sans-serif !important;
 }
 
@@ -2343,16 +2367,8 @@ html:not(.js) .faq-row-chevron--open {
   font-size: 14px !important;
   line-height: 1.6 !important;
   color: rgba(12, 17, 24, 0.6) !important;
-  max-width: 460px !important;
+  max-width: 480px !important;
   font-family: var(--font-sans), system-ui, sans-serif !important;
-}
-
-.footer-buttons-row {
-  margin-top: 32px !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-  flex-wrap: wrap !important;
 }
 
 .footer-email-note {
@@ -2379,45 +2395,49 @@ html:not(.js) .faq-row-chevron--open {
   color: var(--navy-900, #050c2e) !important;
 }
 
-/* Art: <DitherO /> & Isometric Footer Machine */
-.footer-artwork {
-  position: absolute !important;
-  right: 6% !important;
-  bottom: 0 !important;
-  transform: translateY(50%) !important;
-  width: 440px !important;
-  aspect-ratio: 1 / 1 !important;
-  pointer-events: none !important;
-  aria-hidden: true !important;
-  z-index: 1 !important;
-  mask-image: radial-gradient(closest-side, #000000 60%, transparent 100%) !important;
-  -webkit-mask-image: radial-gradient(closest-side, #000000 60%, transparent 100%) !important;
+.footer-buttons-group {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  padding-top: 6px !important;
 }
 
-.footer-artwork.footer-artwork--iso {
-  position: absolute !important;
-  right: 28px !important;
-  top: 50% !important;
-  bottom: auto !important;
-  transform: translateY(-48%) !important;
-  width: 500px !important;
-  aspect-ratio: auto !important;
-  pointer-events: auto !important;
-  mask-image: none !important;
-  -webkit-mask-image: none !important;
+.footer-buttons-group .footer-buttons-row {
+  margin-top: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}
+
+.footer-buttons-group .footer-email-note {
+  margin-top: 14px !important;
+  text-align: right !important;
+}
+
+/* Wide Bottom Isometric Figure spanning container */
+.footer-machine-row {
+  position: relative !important;
+  width: 100% !important;
   z-index: 1 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 4px !important;
 }
 
 .footer-iso-stage {
   --anatomy-card: var(--light-1, #f6f6f6);
   --anatomy-paper: var(--light-1, #f6f6f6);
-  width: 100%;
+  width: 100% !important;
+  max-width: 1120px !important;
 }
 
 .footer-iso-stage .iso-svg {
-  width: 100%;
-  height: auto;
-  display: block;
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
 }
 
 /* ==========================================================================
@@ -2481,36 +2501,50 @@ html:not(.js) .faq-row-chevron--open {
 
 @media (max-width: 899px) {
   .footer-upper-row {
-    min-height: 380px !important;
-    padding: 28px 20px !important;
+    min-height: auto !important;
+    padding: 32px 20px 24px 20px !important;
+    gap: 24px !important;
   }
 
-  .footer-artwork {
-    width: 300px !important;
-    right: -40px !important;
-    bottom: 0 !important;
-    transform: translateY(50%) !important;
+  .footer-cta-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
   }
 
-  .footer-artwork.footer-artwork--iso {
-    position: relative !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-    transform: none !important;
+  .footer-buttons-group {
     width: 100% !important;
-    max-width: 420px !important;
-    margin: 24px auto 0 auto !important;
+    align-items: flex-start !important;
+    padding-top: 0 !important;
+  }
+
+  .footer-buttons-group .footer-email-note {
+    text-align: left !important;
+    margin-top: 14px !important;
+  }
+
+  .footer-buttons-group .footer-buttons-row {
+    width: 100% !important;
+  }
+
+  .footer-machine-row {
+    width: 100% !important;
+    margin-top: 12px !important;
   }
 
   .footer-buttons-row {
-    flex-direction: column !important;
-    gap: 12px !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
     width: 100% !important;
   }
 
   .footer-buttons-row .btn {
-    width: 100% !important;
+    width: auto !important;
+    height: 40px !important;
+    padding: 0 8px 0 12px !important;
+    font-size: 11.5px !important;
+    gap: 8px !important;
     justify-content: center !important;
   }
 
@@ -2692,6 +2726,23 @@ html.reduce-motion .section-bar__hairline {
   align-items: center !important;
   justify-content: center !important;
   user-select: none !important;
+}
+
+.bp-stage--mobile {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .bp-stage--desktop {
+    display: none !important;
+  }
+  .bp-stage--mobile {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 390px !important;
+    padding: 0 8px !important;
+    box-sizing: border-box !important;
+  }
 }
 
 .bp-svg {

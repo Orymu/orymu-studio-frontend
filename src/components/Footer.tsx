@@ -14,74 +14,78 @@ export default function Footer() {
     <footer className="footer-section" id="contact">
       <span id="footer" style={{ position: "absolute", top: 0, pointerEvents: "none" }} aria-hidden="true" />
       <div className="content-frame footer-frame">
-        {/* Upper Row */}
+        {/* Upper Row: Left text + Right CTA buttons, with Wide Isometric Machine spanning below */}
         <div className="footer-upper-row" id="kontak">
-          <div className="footer-upper-content">
-            <motion.h2
-              className="footer-heading"
-              initial={isReducedMotion ? false : { opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={VIEWPORT_SETTINGS}
-              transition={{ duration: DURATION.base, ease: EASE }}
-            >
-              Butuh bantuan atau diskusi proyek?
-            </motion.h2>
+          <div className="footer-cta-header">
+            <div className="footer-cta-text">
+              <motion.h2
+                className="footer-heading"
+                initial={isReducedMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={VIEWPORT_SETTINGS}
+                transition={{ duration: DURATION.base, ease: EASE }}
+              >
+                Butuh bantuan atau diskusi proyek?
+              </motion.h2>
 
-            <motion.p
-              className="footer-paragraph"
-              initial={isReducedMotion ? false : { opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={VIEWPORT_SETTINGS}
-              transition={{ duration: DURATION.base, ease: EASE, delay: isReducedMotion ? 0 : 0.08 }}
-            >
-              Ubah ide Anda menjadi produk digital berdampak tinggi.
-            </motion.p>
-
-            <div className="footer-buttons-row">
-              <motion.div
+              <motion.p
+                className="footer-paragraph"
                 initial={isReducedMotion ? false : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_SETTINGS}
-                transition={{ duration: DURATION.fast, ease: EASE, delay: isReducedMotion ? 0 : 0.16 }}
+                transition={{ duration: DURATION.base, ease: EASE, delay: isReducedMotion ? 0 : 0.08 }}
               >
-                <Button
-                  variant="dark"
-                  href="mailto:orymu@studio.com?subject=Jadwalkan%20Diskusi"
-                >
-                  Jadwalkan Diskusi
-                </Button>
-              </motion.div>
-
-              <motion.div
-                initial={isReducedMotion ? false : { opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={VIEWPORT_SETTINGS}
-                transition={{ duration: DURATION.fast, ease: EASE, delay: isReducedMotion ? 0 : 0.24 }}
-              >
-                <Button
-                  variant="light"
-                  href="mailto:orymu@studio.com"
-                >
-                  Kirim Email
-                </Button>
-              </motion.div>
+                Ubah ide Anda menjadi produk digital berdampak tinggi.
+              </motion.p>
             </div>
 
-            <div className="footer-email-note">
-              <span className="footer-email-label">Atau kirim email ke</span>{" "}
-              <a href="mailto:orymu@studio.com" className="footer-email-link">
-                orymu@studio.com
-              </a>
+            <div className="footer-buttons-group">
+              <div className="footer-buttons-row">
+                <motion.div
+                  initial={isReducedMotion ? false : { opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={VIEWPORT_SETTINGS}
+                  transition={{ duration: DURATION.fast, ease: EASE, delay: isReducedMotion ? 0 : 0.16 }}
+                >
+                  <Button
+                    variant="dark"
+                    href="mailto:orymu@studio.com?subject=Jadwalkan%20Diskusi"
+                  >
+                    Jadwalkan Diskusi
+                  </Button>
+                </motion.div>
+
+                <motion.div
+                  initial={isReducedMotion ? false : { opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={VIEWPORT_SETTINGS}
+                  transition={{ duration: DURATION.fast, ease: EASE, delay: isReducedMotion ? 0 : 0.24 }}
+                >
+                  <Button
+                    variant="light"
+                    href="mailto:orymu@studio.com"
+                  >
+                    Kirim Email
+                  </Button>
+                </motion.div>
+              </div>
+
+              <div className="footer-email-note">
+                <span className="footer-email-label">Atau kirim email ke</span>{" "}
+                <a href="mailto:orymu@studio.com" className="footer-email-link">
+                  orymu@studio.com
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Art: Interactive Isometric Project Dispatch & Ticket Press */}
+          {/* Wide Interactive Isometric Project Dispatch & Engineering Workbench spanning the bottom */}
           <motion.div
-            className="footer-artwork footer-artwork--iso"
-            initial={isReducedMotion ? false : { opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            className="footer-machine-row"
+            initial={isReducedMotion ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_SETTINGS}
-            transition={{ duration: DURATION.slow, ease: EASE }}
+            transition={{ duration: DURATION.slow, ease: EASE, delay: isReducedMotion ? 0 : 0.12 }}
           >
             <FooterDispatchFigure />
           </motion.div>
