@@ -1,5 +1,5 @@
-import { iso, pathOf } from "./iso-kit.mjs";
-import * as G from "./lathe.mjs";
+import { iso, pathOf } from "./iso-kit";
+import * as G from "./lathe";
 
 const LIGHT = (() => {
   const length = Math.hypot(-0.55, -0.835);

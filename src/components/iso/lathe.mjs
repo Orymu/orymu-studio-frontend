@@ -1,4 +1,4 @@
-import { cameraOf, iso, pathOf } from "./iso-kit.mjs";
+import { cameraOf, iso, pathOf } from "./iso-kit";
 
 const TAU = Math.PI * 2;
 const LIGHT_UP = 1.2;
